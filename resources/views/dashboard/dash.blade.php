@@ -3,14 +3,14 @@
     <section id="dashboard">
         <div class="container mt-5">
             {{-- crud --}}
-            <h6>Crud Data</h6>
-            <div class="row mt-3">
+            {{-- <h6>Crud Data</h6> --}}
+            <div class="row pt-5">
                
                 <div class="col-md-4">
                     <a href="">
                         <div class="card text-center">
-                            <p><i class="fas fa-users"></i></p>
-                            <p>Data Siswa</p>
+                            <p><i class="fas fa-random"></i></p>
+                            <p>123</p>
                         </div>
                     </a>
                 </div>
@@ -18,15 +18,7 @@
                     <a href="">
                         <div class="card text-center">
                             <p><i class="fas fa-users"></i></p>
-                            <p>Data Petugas</p>
-                        </div>
-                    </a>
-                </div>
-                <div class="col-md-4">
-                    <a href="">
-                        <div class="card text-center">
-                            <p><i class="fas fa-users"></i></p>
-                            <p>Data Kelas</p>
+                            <p>1234</p>
                         </div>
                     </a>
                 </div>
@@ -34,11 +26,12 @@
                 <div class="col-md-4">
                     <a href="">
                         <div class="card text-center">
-                            <p><i class="fas fa-users"></i></p>
-                            <p>Data Surat</p>
+                            <p><i class="fas fa-shopping-cart"></i></p>
+                            <p>123</p>
                         </div>
                     </a>
                 </div>
+
             </div>
             
         </div>

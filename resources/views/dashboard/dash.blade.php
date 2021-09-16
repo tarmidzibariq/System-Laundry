@@ -18,7 +18,7 @@
                     <a href="">
                         <div class="card text-center">
                             <p><i class="fas fa-users"></i></p>
-                            <p>1234</p>
+                            <p>{{$pengguna}}</p>
                         </div>
                     </a>
                 </div>

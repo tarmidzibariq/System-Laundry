@@ -29,5 +29,10 @@ Route::get('/home', [HomeController::class, 'index'])->name('dashboard.dash');
 // pengguna
 Route::prefix('/')->group(function () {
     Route::get('/pengguna', [PenggunaController::class, 'index'])->name('pengguna.index');
+    Route::get('/pengguna/create', [PenggunaController::class, 'create'])->name('pengguna.createpengguna');
+    Route::post('/pengguna/store', [PenggunaController::class, 'store'])->name('pengguna.store');
+    Route::get('/pengguna/{id}/edit', [PenggunaController::class, 'edit'])->name('pengguna.editpengguna');
+    Route::post('/pengguna/update/{id}', [PenggunaController::class, 'update'])->name('pengguna.update');
+    Route::delete('/pengguna/delete/{id}', [PenggunaController::class, 'delete'])->name('pengguna.delete');
 
 });

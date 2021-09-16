@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\PenggunaController;
 
 /*
 |--------------------------------------------------------------------------
@@ -24,3 +25,9 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 // home
 Route::get('/home', [HomeController::class, 'index'])->name('dashboard.dash');
+
+// pengguna
+Route::prefix('/')->group(function () {
+    Route::get('/pengguna', [PenggunaController::class, 'index'])->name('pengguna.index');
+
+});

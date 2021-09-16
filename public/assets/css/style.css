@@ -1527,7 +1527,7 @@ h6 .badge {
   z-index: 890;
   background-color: transparent; }
   .navbar.active {
-    background-color: #6777ef;
+    background-color: #43D39E;
     box-shadow: rgba(103, 119, 239, 0.2) rgba(0, 0, 0, 0.03); }
 
 .navbar-bg {
@@ -1536,8 +1536,8 @@ h6 .badge {
   top: 0;
   left: 0;
   width: 100%;
-  height: 115px;
-  background-color: #6777ef;
+  height:70px;
+  background-color: #43D39E;
   z-index: -1; }
 
 .navbar {

@@ -10,7 +10,7 @@
             
             <li class="menu-header">Dashboard</li>
             <li class="nav-item ">
-                <a href="#" class="nav-link "><i class="fas fa-desktop"></i><span>Dashboard</span></a>
+                <a href="{{ route('dashboard.dash') }}" class="nav-link "><i class="fas fa-desktop"></i><span>Dashboard</span></a>
             </li>
             <li class="menu-header">Menu</li>
             @if(Auth::check())
@@ -27,7 +27,7 @@
                 <a href="#" class="nav-link "><i class="fas fa-list"></i><span>Produk</span></a>
             </li>
             <li class="nav-item ">
-                <a href="#" class="nav-link "><i class="fas fa-users"></i><span>Pengguna</span></a>
+                <a href="{{ route('pengguna.index') }}" class="nav-link "><i class="fas fa-users"></i><span>Pengguna</span></a>
             </li>
             @endif
             @if(Auth::user()->role == 'admin' or Auth::user()->role == 'kasir')

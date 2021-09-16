@@ -19,3 +19,35 @@
         color: #2F3542;
     }
 </style>
+{{-- style crudsiswa --}}
+<style>
+    #crudsiswa .card-head{
+        width: 100%;
+        height: 50px;
+        background-color: #43D39E;
+        margin-top: 50px
+    }
+    #crudsiswa .card{
+        /* height: 100%; */
+        background-color: #ffffff;
+        padding-bottom: 50px;
+        
+    }
+    #crudsiswa a{
+        text-decoration: none;
+        
+    }
+</style>
+{{-- create siswa --}}
+<style>
+    #createsiswa .card-head{
+        width: 100%;
+        height: 50px;
+        background-color: #43D39E;
+        margin-top: 50px
+    }
+    #createsiswa .card{
+        padding-bottom: 50px;
+        background-color: #ffffff;
+    }
+</style>

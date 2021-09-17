@@ -1,10 +1,10 @@
 <div class="main-sidebar">
     <aside id="sidebar-wrapper">
         <div class="sidebar-brand">
-            <a href="index.html">Stisla</a>
+            <a href="index.html">Laundry</a>
         </div>
         <div class="sidebar-brand sidebar-brand-sm">
-            <a href="index.html">St</a>
+            <a href="index.html">CLN</a>
         </div>
         <ul class="sidebar-menu">
             
@@ -21,7 +21,7 @@
             @endif
             @if(Auth::user()->role == 'admin')
             <li class="nav-item ">
-                <a href="#" class="nav-link "><i class="fas fa-random"></i><span>Outlet</span></a>
+                <a href="{{ route('outlet.index') }}" class="nav-link "><i class="fas fa-random"></i><span>Outlet</span></a>
             </li>
             <li class="nav-item ">
                 <a href="#" class="nav-link "><i class="fas fa-list"></i><span>Produk</span></a>

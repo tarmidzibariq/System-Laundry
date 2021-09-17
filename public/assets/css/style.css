@@ -1056,13 +1056,13 @@ table tr:hover .table-links {
   margin: 0 3px; }
 
 .page-item.active .page-link {
-  background-color: #6777ef;
-  border-color: #6777ef; }
+  background-color: #3FC5F0;
+  border-color: #3FC5F0; }
 
 .page-item.disabled .page-link {
   border-color: transparent;
   background-color: #f9fafe;
-  color: #6777ef;
+  color: #3FC5F0;
   opacity: .6; }
 
 .page-link {
@@ -1070,7 +1070,7 @@ table tr:hover .table-links {
   background-color: #f9fafe;
   font-weight: 600; }
   .page-link:hover {
-    background-color: #6777ef;
+    background-color: #3FC5F0;
     color: #fff;
     border-color: transparent; }
   .page-link:focus {
@@ -1527,7 +1527,7 @@ h6 .badge {
   z-index: 890;
   background-color: transparent; }
   .navbar.active {
-    background-color: #43D39E;
+    background-color: #3FC5F0;
     box-shadow: rgba(103, 119, 239, 0.2) rgba(0, 0, 0, 0.03); }
 
 .navbar-bg {
@@ -1537,7 +1537,7 @@ h6 .badge {
   left: 0;
   width: 100%;
   height:70px;
-  background-color: #43D39E;
+  background-color: #3FC5F0;
   z-index: -1; }
 
 .navbar {

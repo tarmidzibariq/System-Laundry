@@ -4,13 +4,13 @@
         <div class="card-head">
             <div class="container text-white">
                 <div style="font-size: 15px; padding-top: 14px;" >
-                    <i class="fas fa-users pr-2" style="font-size: 15px;"></i> <span>Data Pengguna</span>
+                    <i class="fas fa-list pr-2" style="font-size: 15px;"></i> <span>Data Outlet</span>
                 </div>
             </div>
         </div>
         <div class="card">
             <div class="container">
-                <a href="{{route('pengguna.createpengguna')}}"><button class="btn mt-4 text-white" style="background-color:#3FC5F0;"><i class="fas fa-user-plus mr-1"></i> Tambah Data</button></a>
+                <a href="{{ route('outlet.createoutlet') }}"><button class="btn mt-4 text-white" style="background-color:#3FC5F0;"><i class="fas fa-user-plus mr-1"></i> Tambah Data</button></a>
                 {{-- <a href="{{route('crudsiswa.cetaksiswa')}}"><button class="btn btn-primary mt-4 text-white" ><i class="fas fa-file-pdf mr-1"></i> Print PDF</button></a> --}}
 
                 @if ($message = Session::get('success'))
@@ -24,25 +24,26 @@
                       <thead>
                         <tr>
                           <th scope="col" class="text-center">NO</th>
-                          <th scope="col">PENGGUNA</th>
-                          <th scope="col">EMAIL</th>
+                          <th scope="col">NAMA</th>
+                          <th scope="col">TELEPHONE</th>
+                          <th scope="col">ALAMAT</th>
                           <th scope="col">ACTION</th>
                         </tr>
                       </thead>
                       <tbody>
-                        @foreach ($user as $usr)
+                        @foreach ($outlet as $item)
                             
                         <tr>
                           <th scope="row" class="text-center">{{$loop->iteration}}</th>
-                          <td>{{$usr->name}}</td>
-                          <td>{{$usr->email}}</td>
-                          {{-- <td>{{$usr->}}</td> --}}
+                          <td>{{$item->nama}}</td>
+                          <td>{{$item->tlp}}</td>
+                          <td>{{$item->alamat}}</td>
                           <td class="text-center">
-                            <form action="{{route('pengguna.delete',$usr->id)}}" method="POST">
+                            <form action="{{route('outlet.delete',$item->id)}}" method="POST">
                               @method('DELETE')
                               @csrf
-                                {{-- <i class="fas fa-search text-primary"></i>&ensp;  --}}
-                                <a href="{{ route('pengguna.editpengguna', [$usr->id]) }}">
+                                
+                                <a href="{{ route('outlet.editoutlet', [$item->id]) }}">
                                   <i class="fas fa-edit " style="color: #f39c12"></i>&ensp;     
                                 </a>
                                 |&ensp;
@@ -54,6 +55,11 @@
                         
                       </tbody>
                   </table>
+                </div>
+                <div class="d-flex justify-content-center">
+                    
+                        {{ $outlet->links() }}
+                    
                 </div>
             </div>
             

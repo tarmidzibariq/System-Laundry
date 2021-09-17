@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PenggunaController;
+use App\Http\Controllers\OutletController;
 
 /*
 |--------------------------------------------------------------------------
@@ -34,5 +35,15 @@ Route::prefix('/')->group(function () {
     Route::get('/pengguna/{id}/edit', [PenggunaController::class, 'edit'])->name('pengguna.editpengguna');
     Route::post('/pengguna/update/{id}', [PenggunaController::class, 'update'])->name('pengguna.update');
     Route::delete('/pengguna/delete/{id}', [PenggunaController::class, 'delete'])->name('pengguna.delete');
+
+});
+// outlet
+Route::prefix('/')->group(function () {
+    Route::get('/outlet', [OutletController::class, 'index'])->name('outlet.index');
+    Route::get('/outlet/create', [OutletController::class, 'create'])->name('outlet.createoutlet');
+    Route::post('/outlet/store', [OutletController::class, 'store'])->name('outlet.store');
+    Route::get('/outlet/{id}/edit', [OutletController::class, 'edit'])->name('outlet.editoutlet');
+    Route::post('/outlet/update/{id}', [OutletController::class, 'update'])->name('outlet.update');
+    Route::delete('/outlet/delete/{id}', [OutletController::class, 'delete'])->name('outlet.delete');
 
 });

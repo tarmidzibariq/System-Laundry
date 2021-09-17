@@ -24,7 +24,7 @@
     #crudsiswa .card-head{
         width: 100%;
         height: 50px;
-        background-color: #43D39E;
+        background-color: #3FC5F0;
         margin-top: 50px
     }
     #crudsiswa .card{
@@ -43,7 +43,7 @@
     #createsiswa .card-head{
         width: 100%;
         height: 50px;
-        background-color: #43D39E;
+        background-color: #3FC5F0;
         margin-top: 50px
     }
     #createsiswa .card{

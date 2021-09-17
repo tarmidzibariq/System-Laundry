@@ -35,12 +35,29 @@ class PenggunaController extends Controller
             'password' => Hash::make($request->password),
             'role' => $request->role,
         ]);
-        return redirect('pengguna')->with(['success' => 'Pesan Berhasil']);
+        return redirect('pengguna')->with(['success' => 'Berhasil ditambahkan']);
     }
 
     public function edit($id)
     {
         $user= User::find($id);
         return view('pengguna.editpengguna', compact('user'));
+    }
+
+    public function update(Request $request, $id)
+    {
+        $update= User::find($id)->update([
+            'name' => $request->name,
+            'email' => $request->email,
+            'password' => Hash::make($request->password),
+            'role' => $request->role,
+        ]);
+        return redirect('pengguna')->with(['success' => 'Berhasil diedit']);
+    }
+
+    public function delete(User $id)
+    {
+        $id->delete();
+        return redirect('pengguna')->with(['success' => 'Berhasil dihapus']);
     }
 }

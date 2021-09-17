@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\User;
+use App\Models\Outlet;
 class HomeController extends Controller
 {
     /**
@@ -24,6 +25,7 @@ class HomeController extends Controller
     public function index()
     {
         $pengguna = User::where('role', 'member')->count();
-        return view('dashboard.dash',compact('pengguna'));
+        $outlet = Outlet::count();
+        return view('dashboard.dash',compact('pengguna','outlet'));
     }
 }

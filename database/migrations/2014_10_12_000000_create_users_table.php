@@ -19,9 +19,12 @@ class CreateUsersTable extends Migration
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
-            $table->enum('role',['admin','kasir','owner','member'])->default('member');
+            $table->enum('role',['admin','kasir','owner','member']);
+            $table->unsignedBigInteger('id_outlet')->nullable();
             $table->rememberToken();
             $table->timestamps();
+
+            $table->foreign('id_outlet')->references('id')->on('outlets');
         });
     }
 

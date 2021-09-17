@@ -10,7 +10,7 @@
                     <a href="">
                         <div class="card text-center">
                             <p><i class="fas fa-random"></i></p>
-                            <p>123</p>
+                            <p>{{ $outlet }}</p>
                         </div>
                     </a>
                 </div>

@@ -143,6 +143,10 @@
                                 <input id="password-confirm" type="password" class="form-control"
                                     name="password_confirmation" required autocomplete="new-password">
                             </div>
+                            <div class="">
+                                {{-- <label for="exampleInputPassword1" class="form-label">Konfirmasi Password</label> --}}
+                                <input type="hidden" class="form-control" name="role" value="member">
+                            </div>
                             <!-- <div class="mb-3 form-check">
                                 <input type="checkbox" class="form-check-input" id="exampleCheck1">
                                 <label class="form-check-label" for="exampleCheck1">Check me out</label>

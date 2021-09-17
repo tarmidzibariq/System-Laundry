@@ -14,11 +14,17 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
+        DB::table('outlets')->insert([
+            'nama' => 'candika',
+            'alamat' => 'depok',
+            'tlp' => '123123',
+        ]);
         DB::table('users')->insert([
             'name' => 'admin',
             'email' => 'admin@gmail.com',
             'password' => Hash::make('12345678'),
             'role'=> 'admin',
+            'id_outlet'=> '1',
         ]);
 
         DB::table('users')->insert([
@@ -26,6 +32,7 @@ class DatabaseSeeder extends Seeder
             'email' => 'kasir@gmail.com',
             'password' => Hash::make('12345678'),
             'role' => 'kasir',
+            'id_outlet' => '1',
         ]);
 
         DB::table('users')->insert([
@@ -33,6 +40,7 @@ class DatabaseSeeder extends Seeder
             'email' => 'owner@gmail.com',
             'password' => Hash::make('12345678'),
             'role' => 'owner',
+            'id_outlet' => '1',
         ]);
 
         DB::table('users')->insert([

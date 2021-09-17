@@ -8,4 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class outlet extends Model
 {
     use HasFactory;
+    protected $fillable = [
+        'nama',
+        'alamat',
+        'tlp',
+    ];
 }

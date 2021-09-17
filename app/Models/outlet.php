@@ -13,4 +13,10 @@ class outlet extends Model
         'alamat',
         'tlp',
     ];
+    // protected $table = 'outlets';
+    // protected $guarded = [];
+    public function Users()
+    {
+        return $this->hasMany('App\Models\user');
+    } 
 }

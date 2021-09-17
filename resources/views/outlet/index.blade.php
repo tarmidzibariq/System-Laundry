@@ -10,7 +10,7 @@
         </div>
         <div class="card">
             <div class="container">
-                <a href="{{ route('outlet.createoutlet') }}"><button class="btn mt-4 text-white" style="background-color:#3FC5F0;"><i class="fas fa-user-plus mr-1"></i> Tambah Data</button></a>
+                <a href="{{ route('outlet.createoutlet') }}"><button class="btn mt-4 text-white" style="background-color:#3FC5F0;"><i class="fas fa-plus mr-1"></i> Tambah Data</button></a>
                 {{-- <a href="{{route('crudsiswa.cetaksiswa')}}"><button class="btn btn-primary mt-4 text-white" ><i class="fas fa-file-pdf mr-1"></i> Print PDF</button></a> --}}
 
                 @if ($message = Session::get('success'))
@@ -56,7 +56,7 @@
                       </tbody>
                   </table>
                 </div>
-                <div class="d-flex justify-content-center">
+                <div class="d-flex justify-content-left">
                     
                         {{ $outlet->links() }}
                     

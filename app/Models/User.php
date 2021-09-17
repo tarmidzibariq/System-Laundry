@@ -43,4 +43,12 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    // protected $table = 'users';
+    // protected $guarded = [];
+    public function outlets()
+    {
+        return $this->belongsTo('App\Models\outlet');
+    }
+    
 }

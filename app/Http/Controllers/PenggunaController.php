@@ -4,13 +4,16 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\User;
+// use App\Models\Outlet;
 use Illuminate\Support\Facades\Hash;
 class PenggunaController extends Controller
 {
     public function index()
     {
-        $user=User::all()->where('role','member');
-        return view('pengguna.index',compact('user'));
+        $user=User::orderBy('id')->where('role','member')->paginate(10);
+        $toko = User::orderBy('id')->where('role',['admin','member','kasir'])->paginate(10);
+        // dd($toko);
+        return view('pengguna.index',compact('user','toko'));
     }
 
     public function create()

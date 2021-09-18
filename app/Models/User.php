@@ -44,11 +44,11 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    // protected $table = 'users';
+    protected $table = 'users';
     // protected $guarded = [];
     public function outlets()
     {
-        return $this->belongsTo('App\Models\outlet');
+        return $this->belongsTo('App\Models\outlet', 'id_outlet','id');
     }
     
 }

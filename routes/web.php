@@ -28,17 +28,23 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Route::get('/home', [HomeController::class, 'index'])->name('dashboard.dash');
 
 // pengguna
-Route::prefix('/')->group(function () {
+Route::prefix('pengguna')->group(function () {
     Route::get('/pengguna', [PenggunaController::class, 'index'])->name('pengguna.index');
     Route::get('/pengguna/create', [PenggunaController::class, 'create'])->name('pengguna.createpengguna');
     Route::post('/pengguna/store', [PenggunaController::class, 'store'])->name('pengguna.store');
     Route::get('/pengguna/{id}/edit', [PenggunaController::class, 'edit'])->name('pengguna.editpengguna');
     Route::post('/pengguna/update/{id}', [PenggunaController::class, 'update'])->name('pengguna.update');
     Route::delete('/pengguna/delete/{id}', [PenggunaController::class, 'delete'])->name('pengguna.delete');
+    // toko
+    Route::get('/toko/create', [PenggunaController::class, 'createtoko'])->name('toko.createtoko');
+    Route::post('/toko/store', [PenggunaController::class, 'storetoko'])->name('toko.store');
+    Route::get('/toko/{id}/edit', [PenggunaController::class, 'edittoko'])->name('toko.edittoko');
+    Route::post('/toko/update/{id}', [PenggunaController::class, 'updatetoko'])->name('toko.update');
+    Route::delete('/toko/delete/{id}', [PenggunaController::class, 'deletetoko'])->name('toko.delete');
 
 });
 // outlet
-Route::prefix('/')->group(function () {
+Route::prefix('outlet')->group(function () {
     Route::get('/outlet', [OutletController::class, 'index'])->name('outlet.index');
     Route::get('/outlet/create', [OutletController::class, 'create'])->name('outlet.createoutlet');
     Route::post('/outlet/store', [OutletController::class, 'store'])->name('outlet.store');

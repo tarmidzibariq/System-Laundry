@@ -75,10 +75,10 @@
         </div>
         <div class="card">
             <div class="container">
-                <a href="{{route('pengguna.createpengguna')}}"><button class="btn mt-4 text-white" style="background-color:#3FC5F0;"><i class="fas fa-user-plus mr-1"></i> Tambah Data</button></a>
+                <a href="{{route('toko.createtoko')}}"><button class="btn mt-4 text-white" style="background-color:#3FC5F0;"><i class="fas fa-user-plus mr-1"></i> Tambah Data</button></a>
                 {{-- <a href="{{route('crudsiswa.cetaksiswa')}}"><button class="btn btn-primary mt-4 text-white" ><i class="fas fa-file-pdf mr-1"></i> Print PDF</button></a> --}}
 
-                @if ($message = Session::get('success'))
+                @if ($message = Session::get('successtoko'))
                   <div class="alert bg-success text-white alert-dismissible mt-3">
                       <button type="button" class="close" data-dismiss="alert"><span>&times;</span></button>
                       <span class="font-weight-semibold">Success!</span> {{$message}} 
@@ -105,15 +105,16 @@
                           <td>{{$item->email}}</td>
                           
                           <td>{{$item->role}}</td>
+                          <td>{{$item->outlets->nama}}</td>
                          
                           {{-- <td></td> --}}
                           {{-- <td>{{$item->}}</td> --}}
                           <td class="text-center">
-                            <form action="{{route('pengguna.delete',$item->id)}}" method="POST">
+                            <form action="{{route('toko.delete',$item->id)}}" method="POST">
                               @method('DELETE')
                               @csrf
                                 {{-- <i class="fas fa-search text-primary"></i>&ensp;  --}}
-                                <a href="{{ route('pengguna.editpengguna', [$item->id]) }}">
+                                <a href="{{ route('toko.edittoko', [$item->id]) }}">
                                   <i class="fas fa-edit " style="color: #f39c12"></i>&ensp;     
                                 </a>
                                 |&ensp;
@@ -122,6 +123,7 @@
                           </td>
                         </tr>
                         @endforeach
+                       
                         
                       </tbody>
                   </table>

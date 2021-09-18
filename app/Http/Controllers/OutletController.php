@@ -32,7 +32,7 @@ class OutletController extends Controller
             'alamat' => $request->alamat,
             'tlp' => $request->tlp,
         ]);
-        return redirect('outlet')->with(['success' => 'Berhasil ditambahkan']);
+        return redirect('outlet/outlet')->with(['success' => 'Berhasil ditambahkan']);
     }
 
     public function edit($id)
@@ -48,12 +48,12 @@ class OutletController extends Controller
             'alamat' => $request->alamat,
             'tlp' => $request->tlp,
         ]);
-        return redirect('outlet')->with(['success' => 'Berhasil diedit']);
+        return redirect('outlet/outlet')->with(['success' => 'Berhasil diedit']);
     }
 
     public function delete(Outlet $id)
     {
         $id->delete();
-        return redirect('outlet')->with(['success' => 'Berhasil dihapus']);
+        return redirect('outlet/outlet')->with(['success' => 'Berhasil dihapus']);
     }
 }

@@ -4,7 +4,7 @@
         <div class="card-head">
             <div class="container text-white">
                 <div style="font-size: 15px; padding-top: 14px;" >
-                    <i class="fas fa-user-plus pr-2" style="font-size: 15px;"></i> <span>Data Toko</span>
+                    <i class="fas fa-user-plus pr-2" style="font-size: 15px;"></i> <span>Edit Data Toko</span>
                 </div>
             </div>
         </div>

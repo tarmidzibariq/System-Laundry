@@ -4,7 +4,7 @@
         <div class="card-head">
             <div class="container text-white">
                 <div style="font-size: 15px; padding-top: 14px;" >
-                    <i class="fas fa-user-plus pr-2" style="font-size: 15px;"></i> <span>Data Paket</span>
+                    <i class="fas fa-edit pr-2" style="font-size: 15px;"></i> <span>Edit Data</span>
                 </div>
             </div>
         </div>

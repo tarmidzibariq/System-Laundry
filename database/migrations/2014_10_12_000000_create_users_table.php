@@ -24,7 +24,7 @@ class CreateUsersTable extends Migration
             $table->rememberToken();
             $table->timestamps();
 
-            $table->foreign('id_outlet')->references('id')->on('outlets');
+            $table->foreign('id_outlet')->references('id')->on('outlets')->onDelete('cascade');
         });
     }
 

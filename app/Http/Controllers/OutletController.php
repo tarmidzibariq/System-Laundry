@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Outlet;
+use App\Models\User;
+use Illuminate\Support\Facades\Auth;
+
 class OutletController extends Controller
 {
     public function Index()
@@ -51,9 +54,23 @@ class OutletController extends Controller
         return redirect('outlet/outlet')->with(['success' => 'Berhasil diedit']);
     }
 
-    public function delete(Outlet $id)
+    public function delete($id)
     {
-        $id->delete();
+        // dd($id);
+
+
+        // $id->delete();
+        //  dd($id_user);
+        // User::where('id',$id_user->id_outlet)->delete();
+        // dd($id);
+        $id_user = User::where('id_outlet',$id)->get();
+        foreach ($id_user as $key => $value) {
+            if(Auth::user()->id == $value->id){
+                Auth::logout();
+            }
+            $value->delete();
+        }
+        Outlet::where('id',$id)->delete();
         return redirect('outlet/outlet')->with(['success' => 'Berhasil dihapus']);
     }
 }

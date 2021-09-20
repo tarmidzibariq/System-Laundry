@@ -101,11 +101,11 @@
                             
                         <tr>
                           <th scope="row" class="text-center">{{$loop->iteration}}</th>
-                          <td>{{$item->name}}</td>
+                          <td>{{$item->name}}</td>    
                           <td>{{$item->email}}</td>
                           
                           <td>{{$item->role}}</td>
-                          <td>{{$item->outlets->nama}}</td>
+                          <td>{{ (!empty($item->outlets->nama)) ? $item->outlets->nama  : 'Tidak punya outlet' }}</td>
                          
                           {{-- <td></td> --}}
                           {{-- <td>{{$item->}}</td> --}}

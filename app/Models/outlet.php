@@ -20,4 +20,8 @@ class outlet extends Model
     {
         return $this->hasMany('App\Models\User');
     }       
+    public function Pakets()
+    {
+        return $this->hasMany('App\Models\Paket');
+    }       
 }

@@ -49,5 +49,12 @@ class DatabaseSeeder extends Seeder
             'password' => Hash::make('12345678'),
             'role' => 'member',
         ]);
+
+        DB::table('pakets')->insert([
+            'id_outlet' => '1',
+            'jenis' => 'kiloan',
+            'nama_paket' => 'Jas Pemerintah',
+            'harga' => '10000',
+        ]);
     }
 }

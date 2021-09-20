@@ -17,10 +17,11 @@ class CreatePaketsTable extends Migration
             $table->id();
             $table->unsignedBigInteger('id_outlet'); 
             $table->string('jenis');
-            $table->string('kiloan');
+            $table->string('nama_paket');
+            $table->bigInteger('harga');
             $table->timestamps();
             
-            $table->foreign('id_outlet')->references('id')->on('outlets');
+            $table->foreign('id_outlet')->references('id')->on('outlets')->onDelete('cascade')->onUpdate('cascade');
         });
     }
 

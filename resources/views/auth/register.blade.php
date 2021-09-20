@@ -59,15 +59,15 @@
         }
 
         .btn-login {
-            background-color: #61B15A;
+            background-color: #3FC5F0;
             color: #ffffff;
             font-size: 14px;
         }
 
         .btn-login:hover {
             background-color: #ffffff;
-            border: 1px solid #61B15A;
-            color: #61B15A;
+            border: 1px solid #3FC5F0;
+            color: #3FC5F0;
             font-size: 14px;
         }
 

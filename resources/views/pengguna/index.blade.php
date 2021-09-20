@@ -4,7 +4,7 @@
         <div class="card-head">
             <div class="container text-white">
                 <div style="font-size: 15px; padding-top: 14px;" >
-                    <i class="fas tokos pr-2" style="font-size: 15px;"></i> <span>Data Pengguna</span>
+                    <i class="fas fa-users pr-2" style="font-size: 15px;"></i> <span>Data Pengguna</span>
                 </div>
             </div>
         </div>

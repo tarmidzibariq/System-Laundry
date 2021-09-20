@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PenggunaController;
 use App\Http\Controllers\OutletController;
+use App\Http\Controllers\PaketController;
 
 /*
 |--------------------------------------------------------------------------
@@ -52,4 +53,14 @@ Route::prefix('outlet')->group(function () {
     Route::post('/outlet/update/{id}', [OutletController::class, 'update'])->name('outlet.update');
     Route::delete('/outlet/delete/{id}', [OutletController::class, 'delete'])->name('outlet.delete');
 
+});
+
+// Produk
+Route::prefix('paket')->group(function () {
+    Route::get('/paket',[PaketController::class, 'index'])->name('paket.index');
+    Route::get('/paket/create', [PaketController::class, 'create'])->name('paket.createpaket');
+    Route::post('/paket/store', [PaketController::class, 'store'])->name('paket.store');
+    Route::get('/paket/{id}/edit', [PaketController::class, 'edit'])->name('paket.editpaket');
+    Route::post('/paket/update/{id}', [PaketController::class, 'update'])->name('paket.update');
+    Route::delete('/paket/delete/{id}', [PaketController::class, 'delete'])->name('paket.delete');
 });

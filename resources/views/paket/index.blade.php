@@ -4,16 +4,16 @@
         <div class="card-head">
             <div class="container text-white">
                 <div style="font-size: 15px; padding-top: 14px;" >
-                    <i class="fas fa-random pr-2" style="font-size: 15px;"></i> <span>Data Outlet</span>
+                    <i class="fas fa-list pr-2" style="font-size: 15px;"></i> <span>Data Paket</span>
                 </div>
             </div>
         </div>
         <div class="card">
             <div class="container">
-                <a href="{{ route('outlet.createoutlet') }}"><button class="btn mt-4 text-white" style="background-color:#3FC5F0;"><i class="fas fa-plus mr-1"></i> Tambah Data</button></a>
+                <a href="{{ route('paket.createpaket') }}"><button class="btn mt-4 text-white" style="background-color:#3FC5F0;"><i class="fas fa-plus mr-1"></i> Tambah Data</button></a>
                 {{-- <a href="{{route('crudsiswa.cetaksiswa')}}"><button class="btn btn-primary mt-4 text-white" ><i class="fas fa-file-pdf mr-1"></i> Print PDF</button></a> --}}
 
-                @if ($message = Session::get('success'))
+                @if ($message = Session::get('successpaket'))
                   <div class="alert bg-success text-white alert-dismissible mt-3">
                       <button type="button" class="close" data-dismiss="alert"><span>&times;</span></button>
                       <span class="font-weight-semibold">Success!</span> {{$message}} 
@@ -24,26 +24,28 @@
                       <thead>
                         <tr>
                           <th scope="col" class="text-center">NO</th>
-                          <th scope="col">NAMA</th>
-                          <th scope="col">TELEPHONE</th>
-                          <th scope="col">ALAMAT</th>
+                          <th scope="col">NAMA OUTLET</th>
+                          <th scope="col">JENIS</th>
+                          <th scope="col">NAMA PAKET</th>
+                          <th scope="col">HARGA</th>
                           <th scope="col">ACTION</th>
                         </tr>
                       </thead>
                       <tbody>
-                        @foreach ($outlet as $item)
+                        @foreach ($paket as $item)
                             
                         <tr>
                           <th scope="row" class="text-center">{{$loop->iteration}}</th>
-                          <td>{{$item->nama}}</td>
-                          <td>{{$item->tlp}}</td>
-                          <td>{{$item->alamat}}</td>
+                          <td>{{$item->outlets->nama}}</td>
+                          <td>{{$item->jenis}}</td>
+                          <td>{{$item->nama_paket}}</td>
+                          <td>{{number_format($item->harga)}}</td>
                           <td class="text-center">
-                            <form action="{{route('outlet.delete',$item->id)}}" method="POST">
+                            <form action="{{route('paket.delete',$item->id)}}" method="POST">
                               @method('DELETE')
                               @csrf
                                 
-                                <a href="{{ route('outlet.editoutlet', [$item->id]) }}">
+                                <a href="{{ route('paket.editpaket', [$item->id]) }}">
                                   <i class="fas fa-edit " style="color: #f39c12"></i>&ensp;     
                                 </a>
                                 |&ensp;
@@ -58,7 +60,7 @@
                 </div>
                 <div class="d-flex justify-content-left">
                     
-                        {{ $outlet->links() }}
+                        {{-- {{ $outlet->links() }} --}}
                     
                 </div>
             </div>

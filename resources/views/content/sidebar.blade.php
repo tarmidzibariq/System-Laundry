@@ -24,7 +24,7 @@
                 <a href="{{ route('outlet.index') }}" class="nav-link "><i class="fas fa-random"></i><span>Outlet</span></a>
             </li>
             <li class="nav-item ">
-                <a href="#" class="nav-link "><i class="fas fa-list"></i><span>Produk</span></a>
+                <a href="{{ route('paket.index') }}" class="nav-link "><i class="fas fa-list"></i><span>Paket</span></a>
             </li>
             <li class="nav-item ">
                 <a href="{{ route('pengguna.index') }}" class="nav-link "><i class="fas fa-users"></i><span>Pengguna</span></a>

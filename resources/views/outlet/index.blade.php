@@ -12,13 +12,6 @@
             <div class="container">
                 <a href="{{ route('outlet.createoutlet') }}"><button class="btn mt-4 text-white" style="background-color:#3FC5F0;"><i class="fas fa-plus mr-1"></i> Tambah Data</button></a>
                 {{-- <a href="{{route('crudsiswa.cetaksiswa')}}"><button class="btn btn-primary mt-4 text-white" ><i class="fas fa-file-pdf mr-1"></i> Print PDF</button></a> --}}
-
-                @if ($message = Session::get('success'))
-                  <div class="alert bg-success text-white alert-dismissible mt-3">
-                      <button type="button" class="close" data-dismiss="alert"><span>&times;</span></button>
-                      <span class="font-weight-semibold">Success!</span> {{$message}} 
-                  </div>   
-                @endif
                 <div class="table-responsive">
                   <table class="table table-bordered mt-2 table-hover">
                       <thead>

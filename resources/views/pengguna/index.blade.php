@@ -12,13 +12,6 @@
             <div class="container">
                 <a href="{{route('pengguna.createpengguna')}}"><button class="btn mt-4 text-white" style="background-color:#3FC5F0;"><i class="fas fa-user-plus mr-1"></i> Tambah Data</button></a>
                 {{-- <a href="{{route('crudsiswa.cetaksiswa')}}"><button class="btn btn-primary mt-4 text-white" ><i class="fas fa-file-pdf mr-1"></i> Print PDF</button></a> --}}
-
-                @if ($message = Session::get('success'))
-                  <div class="alert bg-success text-white alert-dismissible mt-3">
-                      <button type="button" class="close" data-dismiss="alert"><span>&times;</span></button>
-                      <span class="font-weight-semibold">Success!</span> {{$message}} 
-                  </div>   
-                @endif
                 <div class="table-responsive">
                   <table class="table table-bordered mt-2 table-hover">
                       <thead>
@@ -38,7 +31,7 @@
                           <td>{{$usr->email}}</td>
                           {{-- <td>{{$usr->}}</td> --}}
                           <td class="text-center">
-                            <form action="{{route('pengguna.delete',$usr->id)}}" method="POST">
+                            <form action="{{route('pengguna.delete',$usr->id)}}" method="POST" id="delete-{{ $usr->id }}">
                               @method('DELETE')
                               @csrf
                                 {{-- <i class="fas fa-search text-primary"></i>&ensp;  --}}
@@ -46,8 +39,8 @@
                                   <i class="fas fa-edit " style="color: #f39c12"></i>&ensp;     
                                 </a>
                                 |&ensp;
-                                <button type="submit" class=" " style="border: none; background-color: transparent;"><i class="fas fa-trash text-danger"></i></button> 
-                            </form>    
+                                <button type="button" class=" " style="border: none; background-color: transparent;"><i class="fas fa-trash text-danger" onclick="deleteRow( {{ $usr->id }} )"></i></button> 
+                              </form>    
                           </td>
                         </tr>
                         @endforeach
@@ -77,13 +70,6 @@
             <div class="container">
                 <a href="{{route('toko.createtoko')}}"><button class="btn mt-4 text-white" style="background-color:#3FC5F0;"><i class="fas fa-user-plus mr-1"></i> Tambah Data</button></a>
                 {{-- <a href="{{route('crudsiswa.cetaksiswa')}}"><button class="btn btn-primary mt-4 text-white" ><i class="fas fa-file-pdf mr-1"></i> Print PDF</button></a> --}}
-
-                @if ($message = Session::get('successtoko'))
-                  <div class="alert bg-success text-white alert-dismissible mt-3">
-                      <button type="button" class="close" data-dismiss="alert"><span>&times;</span></button>
-                      <span class="font-weight-semibold">Success!</span> {{$message}} 
-                  </div>   
-                @endif
                 <div class="table-responsive">
                   <table class="table table-bordered mt-2 table-hover">
                       <thead>
@@ -138,4 +124,27 @@
         </div>
         
     </section>
+@endsection
+@section('confirm')
+    <script>
+        function deleteRow(id)
+        {
+            swal({
+                title: "Yakin ingin menghapus Data Pengguna " + id + "?",
+                type: "question",
+                buttons: true,
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Yakin',
+                cancelmButtonText: 'Batal',
+                dangerMode: true,
+            })
+                .then((willDelete) => {
+                    if (willDelete) {
+                        $('#delete-'+id).submit();
+                    }
+                });
+        }
+    </script>
 @endsection

@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\Outlet;
+use App\Models\transaksi;
+
 class HomeController extends Controller
 {
     /**
@@ -26,6 +28,15 @@ class HomeController extends Controller
     {
         $pengguna = User::where('role', 'member')->count();
         $outlet = Outlet::count();
-        return view('dashboard.dash',compact('pengguna','outlet'));
+        $transaksi = User::all();
+        $yax = User::select('role');
+
+        $kategori = [];
+        foreach ($transaksi as $transak) {
+            $kategori[] = $transak->name;
+            // $y[] = $transak->role;
+        }
+        // dd($transaksi->where('role', 'member')->count(), $transaksi->where('role', 'kasir')->count());
+        return view('dashboard.dash', compact('pengguna', 'outlet', 'kategori', 'transaksi'));
     }
 }

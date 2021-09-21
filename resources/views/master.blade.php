@@ -21,6 +21,8 @@
   <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}">
   <link rel="stylesheet" href="{{ asset('assets/css/components.css') }}">
 
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/7.33.1/sweetalert2.min.css">
+
   @stack('before-style')
   {{-- style --}}
   @include('content.style')
@@ -59,6 +61,13 @@
   <script src="../node_modules/owl.carousel/dist/owl.carousel.min.js"></script>
   <script src="../node_modules/summernote/dist/summernote-bs4.js"></script>
   <script src="../node_modules/chocolat/dist/js/jquery.chocolat.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/7.33.1/sweetalert2.min.js"></script>
+  @yield('chart')
+  @yield('foto')
+  @yield('confirm')
+  @include('sweetalert::alert')
 
   <!-- Template JS File -->
   <script src="{{ asset('assets/js/scripts.js') }}"></script>

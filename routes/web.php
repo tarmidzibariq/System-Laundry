@@ -5,6 +5,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PenggunaController;
 use App\Http\Controllers\OutletController;
 use App\Http\Controllers\PaketController;
+use App\Http\Controllers\ProfileController;
 
 /*
 |--------------------------------------------------------------------------
@@ -42,7 +43,6 @@ Route::prefix('pengguna')->group(function () {
     Route::get('/toko/{id}/edit', [PenggunaController::class, 'edittoko'])->name('toko.edittoko');
     Route::post('/toko/update/{id}', [PenggunaController::class, 'updatetoko'])->name('toko.update');
     Route::delete('/toko/delete/{id}', [PenggunaController::class, 'deletetoko'])->name('toko.delete');
-
 });
 // outlet
 Route::prefix('outlet')->group(function () {
@@ -52,15 +52,16 @@ Route::prefix('outlet')->group(function () {
     Route::get('/outlet/{id}/edit', [OutletController::class, 'edit'])->name('outlet.editoutlet');
     Route::post('/outlet/update/{id}', [OutletController::class, 'update'])->name('outlet.update');
     Route::delete('/outlet/delete/{id}', [OutletController::class, 'delete'])->name('outlet.delete');
-
 });
 
 // Produk
 Route::prefix('paket')->group(function () {
-    Route::get('/paket',[PaketController::class, 'index'])->name('paket.index');
+    Route::get('/paket', [PaketController::class, 'index'])->name('paket.index');
     Route::get('/paket/create', [PaketController::class, 'create'])->name('paket.createpaket');
     Route::post('/paket/store', [PaketController::class, 'store'])->name('paket.store');
     Route::get('/paket/{id}/edit', [PaketController::class, 'edit'])->name('paket.editpaket');
     Route::post('/paket/update/{id}', [PaketController::class, 'update'])->name('paket.update');
     Route::delete('/paket/delete/{id}', [PaketController::class, 'delete'])->name('paket.delete');
 });
+
+Route::get('/profile/{id}', [ProfileController::class, 'index'])->name('profile');

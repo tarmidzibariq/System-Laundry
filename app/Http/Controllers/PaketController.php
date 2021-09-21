@@ -3,14 +3,15 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Outlet;  
-use App\Models\Paket;  
+use App\Models\Outlet;
+use App\Models\Paket;
+
 class PaketController extends Controller
 {
     public function index()
     {
         $paket = Paket::orderBy('id')->with('outlets')->paginate(10);
-        return view('paket.index',compact('paket'));
+        return view('paket.index', compact('paket'));
     }
 
     public function create()
@@ -26,8 +27,8 @@ class PaketController extends Controller
             [
                 'id_outlet' => 'required',
                 'jenis' => 'required',
-                'nama_paket' => 'required',              
-                'harga' => 'required',              
+                'nama_paket' => 'required',
+                'harga' => 'required',
             ]
         );
         $paket = Paket::create([
@@ -36,7 +37,7 @@ class PaketController extends Controller
             'nama_paket' => $request->nama_paket,
             'harga' => $request->harga,
         ]);
-        return redirect('paket/paket')->with(['succespaket' => 'Paket Berhasil ditambahkan']);
+        return redirect('paket/paket')->with('success', 'Paket berhasil ditambah!');
     }
 
     public function edit($id)
@@ -54,12 +55,12 @@ class PaketController extends Controller
             'nama_paket' => $request->nama_paket,
             'harga' => $request->harga,
         ]);
-        return redirect('paket/paket')->with(['successpaket' => 'Toko Berhasil diedit']);
+        return redirect('paket/paket')->with('success', 'Paket berhasil diedit!');
     }
 
     public function delete(Paket $id)
     {
         $id->delete();
-        return redirect('paket/paket')->with(['successpaket' => 'Berhasil dihapus']);
+        return redirect('paket/paket')->with('success', 'Paket berhasil dihapus!');
     }
 }

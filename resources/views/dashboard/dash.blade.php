@@ -35,13 +35,15 @@
             </div>
             {{-- Chart --}}
 
-             <div class="row">
+             @if (Auth::user()->role == "admin" or Auth::user()->role == "owner" or Auth::user()->role == "kasir" )
+                 <div class="row">
                  <div class="col-md-6">
                      <div class="card" style="height: 400px">
                         <div id="chartPesanan"></div>
                     </div>
                  </div>
              </div>
+             @endif
 
             {{-- Akhir Chart --}}
         </div>

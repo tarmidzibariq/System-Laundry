@@ -6,6 +6,7 @@ use App\Http\Controllers\PenggunaController;
 use App\Http\Controllers\OutletController;
 use App\Http\Controllers\PaketController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\RegispelController;
 
 /*
 |--------------------------------------------------------------------------
@@ -28,6 +29,9 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 // home
 Route::get('/home', [HomeController::class, 'index'])->name('dashboard.dash');
+
+// profile
+Route::get('/profile/{id}', [ProfileController::class, 'index'])->name('profile');
 
 // pengguna
 Route::prefix('pengguna')->group(function () {
@@ -64,4 +68,16 @@ Route::prefix('paket')->group(function () {
     Route::delete('/paket/delete/{id}', [PaketController::class, 'delete'])->name('paket.delete');
 });
 
-Route::get('/profile/{id}', [ProfileController::class, 'index'])->name('profile');
+// Register Pelanggan
+Route::prefix('regispel')->group(function () {
+    Route::get('/regispel', [RegispelController::class, 'index'])->name('regispel.index');
+    Route::get('/regispel/createmember', [RegispelController::class, 'createmember'])->name('regispel.createmember');
+    Route::post('/regispel/store', [RegispelController::class, 'store'])->name('regispel.store');
+    Route::get('/regispel/indexmember', [RegispelController::class, 'indexmember'])->name('regispel.indexmember');
+    Route::get('/regispel/{id}/edit', [RegispelController::class, 'edit'])->name('regispel.edit');
+    Route::post('/regispel/update/{id}', [RegispelController::class, 'update'])->name('regispel.update');
+    Route::get('/regispel/delete/{id}', [RegispelController::class, 'delete'])->name('regispel.delete');
+});
+// Route::get('/', function () {
+//     return view('auth.login');
+// });

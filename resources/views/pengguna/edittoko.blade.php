@@ -18,10 +18,10 @@
                             value="" />
                             <div class="">
                                 {{-- <label for="" class="form-label">NISN</label> --}}
-                                <input type="hidden" class="form-control @error('role') is-invalid @enderror" id="" value="member" name="role">
-                                @error('role')
+                                {{-- <input type="hidden" class="form-control @error('role') is-invalid @enderror" id="" value="member" name="role"> --}}
+                                {{-- @error('role')
                                     <small class="text-danger ">{{$message}}</small>
-                                @enderror
+                                @enderror --}}
                             </div>
                             <div class="mb-3">
                                 <label for="" class="form-label">Email</label> 

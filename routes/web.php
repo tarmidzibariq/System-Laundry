@@ -8,6 +8,7 @@ use App\Http\Controllers\PaketController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\RegispelController;
 use App\Http\Controllers\TransaksiController;
+use Illuminate\Support\Facades\Auth;
 
 /*
 |--------------------------------------------------------------------------
@@ -83,6 +84,8 @@ Route::prefix('regispel')->group(function () {
 // Transaksi
 Route::prefix('order')->group(function () {
     Route::get('/order', [TransaksiController::class, 'create'])->name('order.createorder');
+    Route::post('/getPaket', [TransaksiController::class, 'getPaket']);
+    Route::post('/getHarga', [TransaksiController::class, 'getHarga']);
 });
 // Route::get('/', function () {
 //     return view('auth.login');

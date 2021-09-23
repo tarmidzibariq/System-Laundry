@@ -19,28 +19,30 @@
                             value="" />
                             <div class="mb-3">
                                 <label for="" class="form-label">Nama Toko</label>
-                                <select name="id_outlet" id="" class="select-picker form-control  font-weight-lighter @error('id_outlet') is-invalid @enderror" data-live-search="true">
+                                <select name="id_outlet" id="outlet" class="select-picker form-control  font-weight-lighter @error('id_outlet') is-invalid @enderror" data-live-search="true">
                                     <option value="">Pilih satu</option>
-                                    @foreach ($outlet as $item)
-                                        <option value="{{$item->id }}">{{ $item->nama }}</option>
+                                    @foreach ($outlet as $id => $name)
+                                        <option value="{{ $id }}">{{ $name }}</option>
                                     @endforeach
                                 </select>
                                 @error('id_outlet')
                                     <small class="text-danger ">{{$message}}</small>
                                 @enderror
                             </div>
-                            {{-- <div class="mb-3">
-                                <label for="" class="form-label">Nama Paket</label>
-                                <select name="id_outlet" id="" class="select-picker form-control  font-weight-lighter @error('id_outlet') is-invalid @enderror" data-live-search="true">
+                             <label for="" class="form-label">Nama Paket</label>
+                                <select name="id_paket" id="paket" class="select-picker form-control font-weight-lighter @error('id_paket') is-invalid @enderror mb-4" data-live-search="true">
                                     <option value="">Pilih satu</option>
-                                    @foreach ($outlet as $item)
-                                        <option value="{{ $item->id }}">{{ $item->nama }}</option>
-                                    @endforeach
                                 </select>
-                                @error('id_outlet')
+                                @error('id_paket')
                                     <small class="text-danger ">{{$message}}</small>
                                 @enderror
-                            </div> --}}
+                             <label for="" class="form-label">Harga</label>
+                                <div id="harga">
+                                    <input type="number" class="form-control mb-4" name="harga">
+                                </div>
+                                @error('id_paket')
+                                    <small class="text-danger ">{{$message}}</small>
+                                @enderror
                             
                             
                             <button type="submit"  class="btn btn-primary float-right">Submit</button>
@@ -58,27 +60,31 @@
     </section>
 @endsection
 @push('script')
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/js/bootstrap-select.min.js"></script>
-    <script>
-        $('.selectpicker').selectpicker();
-    </script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
     <script>
         $(document).ready(function () {
-            // Deksripsi
-
-            $('#deks').keyup(function () {
-                var out = $('#deks').val();
-                $('#outdeks').html('<span>'+out.length +'</span>');
-
-                if (out.length >= 250) {
-                    $('#jk').css({'opacity':'100%'});
-                }else{
-                    $('#jk').css({'opacity':'45%'});
-                }
+            $('#outlet').change(function () {
+               let cid=$(this).val();
+               $.ajax({
+                    url: '/order/getPaket',
+                    type: 'post',
+                    data: 'cid='+cid+'&_token={{csrf_token()}}',
+                    success: function (result) {
+                        $('#paket').html(result);
+                    },
+               });
             });
-
-            // AKhir Deksripsi
+            $('#paket').change(function () {
+               let cid=$(this).val();
+               $.ajax({
+                    url: '/order/getHarga',
+                    type: 'post',
+                    data: 'cid='+cid+'&_token={{csrf_token()}}',
+                    success: function (result) {
+                        $('#harga').html(result);
+                    },
+               });
+            });
         })
     </script>
 @endpush

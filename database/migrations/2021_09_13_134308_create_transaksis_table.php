@@ -16,12 +16,13 @@ class CreateTransaksisTable extends Migration
         Schema::create('transaksis', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('id_outlet');
+            $table->unsignedBigInteger('id_paket');
             $table->string('kode_invoice');
-            $table->unsignedBigInteger('id_member');
+            $table->unsignedBigInteger('id_member')->nullable();
             $table->date('tgl');
             $table->date('batas_waktu');
             $table->date('tgl_bayar');
-            $table->string('biaya_tambahan');
+            $table->string('biaya');
             $table->string('diskon');
             $table->string('pajak');
             $table->enum('status', ['baru', 'proses', 'selesai', 'diambil']);
@@ -34,6 +35,9 @@ class CreateTransaksisTable extends Migration
 
             // relationship member
             $table->foreign('id_member')->references('id')->on('members');
+
+            // relationship paket
+            $table->foreign('id_paket')->references('id')->on('pakets');
 
             // relationship user
             $table->foreign('id_user')->references('id')->on('users');

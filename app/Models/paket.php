@@ -20,4 +20,10 @@ class paket extends Model
     {
         return $this->belongsTo('App\Models\outlet', 'id_outlet', 'id');
     }
+
+    // transakis
+    public function transaksis()
+    {
+        return $this->hasMany('App\Models\transaksi');
+    }  
 }

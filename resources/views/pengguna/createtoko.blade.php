@@ -58,20 +58,20 @@
                                     <small class="text-danger ">{{$message}}</small>
                                 @enderror
                             </div>
-                            <div class="mb-3">
-                                <label for="" class="form-label">Nama Toko</label>
-                                <select name="id_outlet" id="" class="select-picker form-control  font-weight-lighter @error('id_outlet') is-invalid @enderror" data-live-search="true">
-                                    <option value="">Pilih satu</option>
-                                    @foreach ($outlet as $item)
-                                        <option value="{{ $item->id }}">{{ $item->nama }}</option>
-                                    @endforeach
+                                {{-- <div class="mb-3">
+                                    <label for="" class="form-label">Nama Toko</label>
+                                    <select name="id_paket" id="" class="select-picker form-control  font-weight-lighter @error('id_paket') is-invalid @enderror" data-live-search="true">
+                                        <option value="">Pilih satu</option>
+                                        @foreach ($paket as $item)
+                                            <option value="{{ $item->id }}">{{ $item->nama }}</option>
+                                        @endforeach
+                                        
                                     
-                                   
-                                </select>
-                                @error('id_outlet')
-                                    <small class="text-danger ">{{$message}}</small>
-                                @enderror
-                            </div>
+                                    </select>
+                                    @error('id_paket')
+                                        <small class="text-danger ">{{$message}}</small>
+                                    @enderror
+                                </div> --}}
                             <button type="submit"  class="btn btn-primary float-right">Submit</button>
                         </div>
                     </div>

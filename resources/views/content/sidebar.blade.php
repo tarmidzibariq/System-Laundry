@@ -55,8 +55,12 @@
             @endif
             @if(Auth::user()->role == 'member')
             <li class="nav-item ">
-                <a href="#" class="nav-link "><i class="fas fa-shopping-cart"></i><span>Order</span></a>
+                <a href="{{ route('order.createorder') }}" class="nav-link "><i class="fas fa-shopping-cart"></i><span>Order</span></a>
             </li>
+            <li class="nav-item ">
+                <a href="#" class="nav-link "><i class="fas fa-shopping-bag"></i><span>Riwayat Order</span></a>
+            </li>
+            
             @endif
             @endif
         </ul>

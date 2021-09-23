@@ -7,6 +7,7 @@ use App\Http\Controllers\OutletController;
 use App\Http\Controllers\PaketController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\RegispelController;
+use App\Http\Controllers\TransaksiController;
 
 /*
 |--------------------------------------------------------------------------
@@ -77,6 +78,11 @@ Route::prefix('regispel')->group(function () {
     Route::get('/regispel/{id}/edit', [RegispelController::class, 'edit'])->name('regispel.edit');
     Route::post('/regispel/update/{id}', [RegispelController::class, 'update'])->name('regispel.update');
     Route::get('/regispel/delete/{id}', [RegispelController::class, 'delete'])->name('regispel.delete');
+});
+
+// Transaksi
+Route::prefix('order')->group(function () {
+    Route::get('/order', [TransaksiController::class, 'create'])->name('order.createorder');
 });
 // Route::get('/', function () {
 //     return view('auth.login');

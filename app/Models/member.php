@@ -16,4 +16,10 @@ class member extends Model
         
     ];
     protected $table = 'members';
+
+    // transakis
+    public function transaksis()
+    {
+        return $this->hasMany('App\Models\transaksi');
+    } 
 }

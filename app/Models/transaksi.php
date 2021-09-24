@@ -11,8 +11,8 @@ class transaksi extends Model
     protected $fillable = [
         'id_outlet',
         'id_paket',
-        'kode_invoice',
-        'id_member',
+        // 'kode_invoice',
+        // 'id_member',
         'tgl',
         'batas_waktu',
         'tgl_bayar',
@@ -26,10 +26,10 @@ class transaksi extends Model
     protected $table = 'transaksis';
 
     // member
-    public function members()
-    {
-        return $this->belongsTo('App\Models\member', 'id_member', 'id');
-    }
+    // public function members()
+    // {
+    //     return $this->belongsTo('App\Models\member', 'id_member', 'id');
+    // }
 
     // outlets
     public function outlets()

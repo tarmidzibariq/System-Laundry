@@ -11,7 +11,7 @@
         </div>
         <div class="card">
             <div class="container pt-4">
-                <form action="" method="POST">
+                <form action="{{ route('order.store') }}" method="POST">
                     @csrf
                     <div class="row">
                         <div class="col-12">
@@ -30,19 +30,56 @@
                                 @enderror
                             </div>
                              <label for="" class="form-label">Nama Paket</label>
-                                <select name="id_paket" id="paket" class="select-picker form-control font-weight-lighter @error('id_paket') is-invalid @enderror mb-4" data-live-search="true">
+                                <select name="id_paket" id="paket" class="select-picker form-control font-weight-lighter @error('id_paket') is-invalid @enderror mb-3" data-live-search="true">
                                     <option value="">Pilih satu</option>
                                 </select>
                                 @error('id_paket')
                                     <small class="text-danger ">{{$message}}</small>
                                 @enderror
-                             <label for="" class="form-label">Harga</label>
+                            <div class="mb-3">
+                                <label for="" class="form-label">Harga</label>
                                 <div id="harga">
-                                    <input type="number" class="form-control mb-4" name="harga">
+                                    {{-- <input type="number" class="form-control mb-4" name="harga"> --}}
+                                    <span class="form-control" name="harga"></span>
                                 </div>
                                 @error('id_paket')
                                     <small class="text-danger ">{{$message}}</small>
                                 @enderror
+                            </div>
+                            <div class="mb-3">
+                                <label for="" class="form-label">Diskon</label>
+                                <div id="diskon">
+                                    {{-- <input type="number" class="form-control mb-4" name="tgl" value=""> --}}
+                                    <span class="form-control" name="diskon"></span>
+                                </div>
+                                @error('id_paket')
+                                    <small class="text-danger ">{{$message}}</small>
+                                @enderror
+                            </div>
+                            <div class="mb-3">
+                                <label for="" class="form-label">Pajak</label>
+                                <div id="pajak">
+                                    {{-- <input type="number" class="form-control mb-4" name="tgl" value=""> --}}
+                                    <span class="form-control" name="pajak"></span>
+                                </div>
+                                @error('id_paket')
+                                    <small class="text-danger ">{{$message}}</small>
+                                @enderror
+                            </div>
+                            <div class="mb-3">
+                                <label for="" class="form-label">Total Harga</label>
+                                <div id="total">
+                                    {{-- <input type="number" class="form-control mb-4" name="tgl" value=""> --}}
+                                    <span class="form-control" name="biaya"></span>
+                                </div>
+                                @error('id_paket')
+                                    <small class="text-danger ">{{$message}}</small>
+                                @enderror
+                            </div>
+                            <input type="hidden" value="{{ Auth::user()->id }}" name="id_user" id="">
+                            <input type="date" class="d-none" name="tgl" value="{{ date("Y-m-d") }}">    
+                            <input type="date" class="d-none" name="batas_waktu" value="{{$batas}}">
+                            <input type="date" class="d-none" name="tgl_bayar" value="{{$batas}}">
                             
                             
                             <button type="submit"  class="btn btn-primary float-right">Submit</button>
@@ -71,6 +108,7 @@
                     data: 'cid='+cid+'&_token={{csrf_token()}}',
                     success: function (result) {
                         $('#paket').html(result);
+                        $('#harga').html('<span class="form-control" name="harga"></span>');
                     },
                });
             });
@@ -82,6 +120,11 @@
                     data: 'cid='+cid+'&_token={{csrf_token()}}',
                     success: function (result) {
                         $('#harga').html(result);
+                        diskon = $('#hargatot').val() * .10;
+                        total = $('#hargatot').val() - diskon + 2000;
+                        $('#diskon').html('<span class="form-control">10%</span><input class="d-none" name="diskon" value="10"></input>');
+                        $('#pajak').html('<span class="form-control">2000</span><input class="d-none" name="pajak" value="2000"></input>');
+                        $('#total').html('<span class="form-control">'+ total +'</span><input class="d-none" name="biaya" value="'+total+'"></input>');
                     },
                });
             });

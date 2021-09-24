@@ -17,16 +17,16 @@ class CreateTransaksisTable extends Migration
             $table->id();
             $table->unsignedBigInteger('id_outlet');
             $table->unsignedBigInteger('id_paket');
-            $table->string('kode_invoice');
-            $table->unsignedBigInteger('id_member')->nullable();
+            // $table->string('kode_invoice');
+            // $table->unsignedBigInteger('id_member')->nullable();
             $table->date('tgl');
             $table->date('batas_waktu');
             $table->date('tgl_bayar');
             $table->string('biaya');
             $table->string('diskon');
             $table->string('pajak');
-            $table->enum('status', ['baru', 'proses', 'selesai', 'diambil']);
-            $table->enum('dibayar', ['dibayar', 'belum_dibayar']);
+            $table->enum('status', ['baru', 'proses', 'selesai', 'diambil'])->default('baru');
+            $table->enum('dibayar', ['dibayar', 'belum_dibayar'])->default('belum_dibayar');
             $table->unsignedBigInteger('id_user');
             $table->timestamps();
 
@@ -34,7 +34,7 @@ class CreateTransaksisTable extends Migration
             $table->foreign('id_outlet')->references('id')->on('outlets');
 
             // relationship member
-            $table->foreign('id_member')->references('id')->on('members');
+            // $table->foreign('id_member')->references('id')->on('members');
 
             // relationship paket
             $table->foreign('id_paket')->references('id')->on('pakets');

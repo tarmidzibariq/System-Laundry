@@ -63,6 +63,9 @@
         title: {
             text: 'Data Pesanan'
         },
+        credits: {
+            enabled: false
+        },
         tooltip: {
             pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
         },
@@ -86,16 +89,16 @@
             colorByPoint: true,
             data: [{
                 name: {!! json_encode($kategori[0]) !!},
-                y:{{$transaksi->where('role', 'admin')->count()}},
+                y:{{$transaksi->where('status', 'baru')->count()}},
             },{
                 name: {!! json_encode($kategori[1]) !!},
-                y:{{$transaksi->where('role', 'kasir')->count()}},
+                y:{{$transaksi->where('status', 'proses')->count()}},
             },{
                 name: {!! json_encode($kategori[2]) !!},
-                y:{{$transaksi->where('role', 'owner')->count()}},
+                y:{{$transaksi->where('status', 'selesai')->count()}}, 
             },{
                 name: {!! json_encode($kategori[3]) !!},
-                y:{{$transaksi->where('role', 'member')->count()}},
+                y:{{$transaksi->where('status', 'diambil')->count()}},
             }]
         }]
     });

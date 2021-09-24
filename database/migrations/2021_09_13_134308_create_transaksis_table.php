@@ -18,7 +18,7 @@ class CreateTransaksisTable extends Migration
             $table->unsignedBigInteger('id_outlet');
             $table->unsignedBigInteger('id_paket');
             // $table->string('kode_invoice');
-            // $table->unsignedBigInteger('id_member')->nullable();
+            $table->unsignedBigInteger('id_member')->nullable();
             $table->date('tgl');
             $table->date('batas_waktu');
             $table->date('tgl_bayar');
@@ -34,7 +34,7 @@ class CreateTransaksisTable extends Migration
             $table->foreign('id_outlet')->references('id')->on('outlets');
 
             // relationship member
-            // $table->foreign('id_member')->references('id')->on('members');
+            $table->foreign('id_member')->references('id')->on('members');
 
             // relationship paket
             $table->foreign('id_paket')->references('id')->on('pakets');

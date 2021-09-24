@@ -26,10 +26,10 @@ class transaksi extends Model
     protected $table = 'transaksis';
 
     // member
-    // public function members()
-    // {
-    //     return $this->belongsTo('App\Models\member', 'id_member', 'id');
-    // }
+    public function members()
+    {
+        return $this->belongsTo('App\Models\member', 'id_member', 'id');
+    }
 
     // outlets
     public function outlets()
@@ -48,5 +48,4 @@ class transaksi extends Model
     {
         return $this->belongsTo('App\Models\user', 'id_user', 'id');
     }
-
 }

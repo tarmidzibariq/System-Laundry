@@ -58,7 +58,7 @@
                 <a href="{{ route('order.createorder') }}" class="nav-link "><i class="fas fa-shopping-cart"></i><span>Order</span></a>
             </li>
             <li class="nav-item ">
-                <a href="{{ route('order.riwayatorder',Auth::user()->id) }}" class="nav-link "><i class="fas fa-shopping-bag"></i><span>Riwayat Order</span></a>
+                <a href="{{ route('order.riwayatorder') }}" class="nav-link "><i class="fas fa-shopping-bag"></i><span>Riwayat Order</span></a>
             </li>
             
             @endif

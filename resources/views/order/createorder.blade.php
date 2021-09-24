@@ -15,8 +15,18 @@
                     @csrf
                     <div class="row">
                         <div class="col-12">
-                            <input type="hidden" class="form-control " id="id" name="id"
-                            value="" />
+                            <div class="mb-3">
+                                <label for="" class="form-label">Member</label>
+                                <select name="id_member" id="member" class="select-picker form-control  font-weight-lighter @error('id_member') is-invalid @enderror" data-live-search="true">
+                                    <option value="">Pilih satu</option>
+                                    @foreach ($member as $itm )
+                                        <option value="{{ $itm->id }}">{{ $itm->nama }}</option>
+                                    @endforeach
+                                </select>
+                                @error('id_member')
+                                    <small class="text-danger ">{{$message}}</small>
+                                @enderror
+                            </div>
                             <div class="mb-3">
                                 <label for="" class="form-label">Nama Toko</label>
                                 <select name="id_outlet" id="outlet" class="select-picker form-control  font-weight-lighter @error('id_outlet') is-invalid @enderror" data-live-search="true">
@@ -109,6 +119,9 @@
                     success: function (result) {
                         $('#paket').html(result);
                         $('#harga').html('<span class="form-control" name="harga"></span>');
+                        $('#diskon').html('<span class="form-control" name="harga"></span>');
+                        $('#pajak').html('<span class="form-control" name="harga"></span>');
+                        $('#total').html('<span class="form-control" name="harga"></span>');
                     },
                });
             });

@@ -87,8 +87,8 @@ Route::prefix('order')->group(function () {
     Route::post('/getPaket', [TransaksiController::class, 'getPaket']);
     Route::post('/getHarga', [TransaksiController::class, 'getHarga']);
     Route::post('/store', [TransaksiController::class, 'store'])->name('order.store');
-    Route::get('/riwayat{id}', [TransaksiController::class, 'index'])->name('order.riwayatorder');
-    Route::get('/riwayat{id}/show{id}', [TransaksiController::class, 'show']);
+    Route::get('/riwayat', [TransaksiController::class, 'index'])->name('order.riwayatorder');
+    Route::get('/riwayat/show{id}', [TransaksiController::class, 'show'])->name('order-showorder');
 });
 // Route::get('/', function () {
 //     return view('auth.login');

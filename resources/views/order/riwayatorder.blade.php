@@ -66,7 +66,7 @@
                               @method('DELETE')
                               @csrf
                                 
-                                <a href="riwayat{{ Auth::user()->id }}/show{{ $item->id }}">
+                                <a href="{{ route('order-showorder',$item->id) }}">
                                   <i class="fas fa-eye" style="color: #3abaf4"></i>&ensp;     
                                 </a>
                             </form>    

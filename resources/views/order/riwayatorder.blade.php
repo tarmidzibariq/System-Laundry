@@ -58,7 +58,14 @@
                                   <div style="font-size: 10px; padding: 5px; border-radius: 5px" class="badge bg-success text-white">dibayar</div>
                               @endif
                               @if ($item->dibayar == 'belum_dibayar')
-                                  <div style="font-size: 10px; padding: 5px; border-radius: 5px" class="badge bg-danger text-white">belum dibayar</div>
+                                    @if ($item->status == 'proses' or $item->status == 'selesai')
+                                        <span style="font-size: 10px; padding: 5px; border-radius: 5px; opacity: 50%;" class="badge bg-danger text-white">batalkan pesanan</span>
+                                        @else
+                                        <a href="#"style="font-size: 10px; padding: 5px; border-radius: 5px" class="badge bg-danger text-white">batalkan pesanan</a>
+                                    @endif
+                                  
+                                  <br>
+                                  <div style="font-size: 10px; padding: 5px; border-radius: 5px" class="badge bg-secondary">belum dibayar</div>
                               @endif
                           </td>
                           <td class="text-center">

@@ -12,7 +12,7 @@ class transaksi extends Model
         'id_outlet',
         'id_paket',
         // 'kode_invoice',
-        // 'id_member',
+        'id_member',
         'tgl',
         'batas_waktu',
         'tgl_bayar',

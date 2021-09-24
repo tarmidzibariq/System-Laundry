@@ -62,8 +62,7 @@
         },
         title: {
             text: 'Data Pesanan'
-        },
-        credits: {
+        },credits: {
             enabled: false
         },
         tooltip: {
@@ -88,17 +87,17 @@
             name: 'Total',
             colorByPoint: true,
             data: [{
-                name: {!! json_encode($kategori[0]) !!},
-                y:{{$transaksi->where('status', 'baru')->count()}},
+                name: 'Baru',
+                y:{{$transaksi->where('status', 'baru')->count()}}, color:'#6dccf7',
             },{
-                name: {!! json_encode($kategori[1]) !!},
-                y:{{$transaksi->where('status', 'proses')->count()}},
+                name: 'Proses',
+                y:{{$transaksi->where('status', 'proses')->count()}}, color:'#ffa426',
             },{
-                name: {!! json_encode($kategori[2]) !!},
-                y:{{$transaksi->where('status', 'selesai')->count()}}, 
+                name: 'Selesai',
+                y:{{$transaksi->where('status', 'selesai')->count()}}, color:'#6777ef', 
             },{
-                name: {!! json_encode($kategori[3]) !!},
-                y:{{$transaksi->where('status', 'diambil')->count()}},
+                name: 'Diambil',
+                y:{{$transaksi->where('status', 'diambil')->count()}} , color:'#47c363',
             }]
         }]
     });

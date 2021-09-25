@@ -4,7 +4,7 @@
         <div class="card-head">
             <div class="container text-white">
                 <div style="font-size: 15px; padding-top: 14px;" >
-                    <i class="fas fa-users-cog pr-2" style="font-size: 15px;"></i> <span>Riawayat Order</span>
+                    <i class="fas fa-shopping-bag pr-2" style="font-size: 15px;"></i> <span>Riawayat Order</span>
                 </div>
             </div>
         </div>
@@ -12,7 +12,7 @@
             <div class="container">
                 {{-- <a href=""><button class="btn mt-4 text-white" style="background-color:#3FC5F0;"><i class="fas fa-plus mr-1"></i> Tambah Data</button></a> --}}
                 {{-- <a href="{{route('crudsiswa.cetaksiswa')}}"><button class="btn btn-primary mt-4 text-white" ><i class="fas fa-file-pdf mr-1"></i> Print PDF</button></a> --}}
-                <div class="table-responsive">
+                <div class="table-responsive mt-2">
                   <table class="table table-bordered mt-2 table-hover">
                       <thead>
                         <tr>
@@ -41,10 +41,10 @@
                           <td>{{$item->batas_waktu}}</td> --}}
                           <td>
                               @if ($item->status == 'baru')
-                                  <div style="font-size: 10px; padding: 5px; border-radius: 5px" class="badge bg-info text-white">{{$item->status}}</div>
+                                  <div style="font-size: 10px; padding: 5px; border-radius: 5px" class="badge bg-warning text-white">{{$item->status}}</div>
                               @endif
                               @if ($item->status == 'proses')
-                                  <div style="font-size: 10px; padding: 5px; border-radius: 5px" class="badge bg-warning text-white">{{$item->status}}</div>
+                                  <div style="font-size: 10px; padding: 5px; border-radius: 5px" class="badge bg-info text-white">{{$item->status}}</div>
                               @endif
                               @if ($item->status == 'selesai')
                                   <div style="font-size: 10px; padding: 5px; border-radius: 5px" class="badge bg-primary text-white">{{$item->status}}</div>

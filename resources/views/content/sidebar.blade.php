@@ -42,7 +42,7 @@
             @endif
             @if(Auth::user()->role == 'admin' or Auth::user()->role == 'kasir')
             <li class="nav-item ">
-                <a href="#" class="nav-link "><i class="fas fa-shopping-cart"></i><span> Entri Transaksi</span></a>
+                <a href="{{ route('entri.index') }}" class="nav-link "><i class="fas fa-shopping-cart"></i><span> Entri Transaksi</span></a>
             </li>
             <li class="nav-item ">
                 <a href="#" class="nav-link "><i class="fas fa-map-marker-alt"></i><span>GPS Location Pelanggan </span></a>

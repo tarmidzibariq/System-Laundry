@@ -8,6 +8,8 @@ use App\Http\Controllers\PaketController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\RegispelController;
 use App\Http\Controllers\TransaksiController;
+use App\Http\Controllers\EntriController;
+use Illuminate\Routing\RouteGroup;
 use Illuminate\Support\Facades\Auth;
 
 /*
@@ -90,6 +92,16 @@ Route::prefix('order')->group(function () {
     Route::get('/riwayat', [TransaksiController::class, 'index'])->name('order.riwayatorder');
     Route::get('/riwayat/show{id}', [TransaksiController::class, 'show'])->name('order-showorder');
 });
+
+Route::prefix('entri')->group(function () {
+    Route::get('/entri', [EntriController::class, 'index'])->name('entri.index');
+    Route::get('/entri/edit/{id}', [EntriController::class, 'edit'])->name('entri.edit');
+    Route::post('/entri/update/{id}', [EntriController::class, 'update'])->name('entri.update');
+    Route::get('/entri/show/{id}', [EntriController::class, 'show'])->name('entri.show');
+    Route::delete('/entri/delete/{id}', [EntriController::class, 'delete'])->name('entri.delete');
+
+});
+
 // Route::get('/', function () {
 //     return view('auth.login');
 // });

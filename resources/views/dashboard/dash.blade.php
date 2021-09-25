@@ -88,10 +88,10 @@
             colorByPoint: true,
             data: [{
                 name: 'Baru',
-                y:{{$transaksi->where('status', 'baru')->count()}}, color:'#6dccf7',
+                y:{{$transaksi->where('status', 'baru')->count()}}, color:'#ffa426',
             },{
                 name: 'Proses',
-                y:{{$transaksi->where('status', 'proses')->count()}}, color:'#ffa426',
+                y:{{$transaksi->where('status', 'proses')->count()}}, color:'#6dccf7',
             },{
                 name: 'Selesai',
                 y:{{$transaksi->where('status', 'selesai')->count()}}, color:'#6777ef', 

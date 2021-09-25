@@ -50,7 +50,7 @@
             @endif
             @if(Auth::user()->role == 'admin' or Auth::user()->role == 'kasir' or Auth::user()->role == 'owner')
             <li class="nav-item ">
-                <a href="#" class="nav-link "><i class="fas fa-file"></i><span>Laporan</span></a>
+                <a href="{{ route('laporan.index') }}" class="nav-link "><i class="fas fa-file"></i><span>Laporan</span></a>
             </li>
             @endif
             @if(Auth::user()->role == 'member')

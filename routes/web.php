@@ -9,6 +9,7 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\RegispelController;
 use App\Http\Controllers\TransaksiController;
 use App\Http\Controllers\EntriController;
+use App\Http\Controllers\LaporanController;
 use Illuminate\Routing\RouteGroup;
 use Illuminate\Support\Facades\Auth;
 
@@ -101,6 +102,9 @@ Route::prefix('entri')->group(function () {
     Route::get('/entri/show/{id}', [EntriController::class, 'show'])->name('entri.show');
     Route::delete('/entri/delete/{id}', [EntriController::class, 'delete'])->name('entri.delete');
 
+});
+Route::prefix('laporan')->group(function () {
+    Route::get('/index', [LaporanController::class, 'index'])->name('laporan.index');
 });
 
 // Route::get('/', function () {

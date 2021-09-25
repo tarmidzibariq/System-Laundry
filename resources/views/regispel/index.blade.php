@@ -12,7 +12,7 @@
             <div class="container">
                 {{-- <a href=""><button class="btn mt-4 text-white" style="background-color:#3FC5F0;"><i class="fas fa-plus mr-1"></i> Tambah Data</button></a> --}}
                 {{-- <a href="{{route('crudsiswa.cetaksiswa')}}"><button class="btn btn-primary mt-4 text-white" ><i class="fas fa-file-pdf mr-1"></i> Print PDF</button></a> --}}
-                <div class="table-responsive">
+                <div class="table-responsive mt-2">
                   <table class="table table-bordered mt-2 table-hover">
                       <thead>
                         <tr>

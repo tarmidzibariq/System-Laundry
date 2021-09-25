@@ -4,7 +4,7 @@
         <div class="card-head">
             <div class="container text-white">
                 <div style="font-size: 15px; padding-top: 14px;" >
-                    <i class="fas fa-users-cog pr-2" style="font-size: 15px;"></i> <span>Riawayat Order</span>
+                    <i class="fas fa-shopping-cart pr-2" style="font-size: 15px;"></i> <span>Entri Transakssi</span>
                 </div>
             </div>
         </div>

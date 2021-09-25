@@ -107,4 +107,14 @@ class TransaksiController extends Controller
         $paket = Paket::find($transaksi->id_paket);
         return view('order.show', compact('transaksi', 'outlet', 'paket'));
     }
+
+    public function cancel(Transaksi $id)
+    {
+        // $cancel = 'cancel';
+        // $update = Transaksi::find($id)->update([
+        //     'dibayar' => $request->$cancel,
+        // ]);
+        $id->delete();
+        return redirect('order/riwayat')->with('success', 'Pesanan berhasil dicancel!');
+    }
 }

@@ -100,6 +100,6 @@ class EntriController extends Controller
     public function delete(Transaksi $id)
     {
         $id->delete();
-        return redirect('entri/entri')->with('success', 'Pesanan berhasil dihapus!');
+        return redirect('entri/entri')->with('success', 'Entri berhasil dihapus!');
     }
 }

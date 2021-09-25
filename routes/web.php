@@ -91,6 +91,7 @@ Route::prefix('order')->group(function () {
     Route::post('/store', [TransaksiController::class, 'store'])->name('order.store');
     Route::get('/riwayat', [TransaksiController::class, 'index'])->name('order.riwayatorder');
     Route::get('/riwayat/show{id}', [TransaksiController::class, 'show'])->name('order-showorder');
+    Route::post('/riwayat/cancel{id}', [TransaksiController::class, 'cancel'])->name('order.cancel');
 });
 
 Route::prefix('entri')->group(function () {

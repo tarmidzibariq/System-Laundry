@@ -59,17 +59,16 @@
                               @endif
                               @if ($item->dibayar == 'belum_dibayar')
                                     @if ($item->status == 'proses' or $item->status == 'selesai')
-                                        <span style="font-size: 10px; padding: 5px; border-radius: 5px; opacity: 50%;" class="badge bg-danger text-white">batalkan pesanan</span>
+                                        <span style="font-size: 10px; padding: 5px; border-radius: 5px; opacity: 50%;" class="badge bg-danger text-white"  data-toggle="tooltip" data-placement="bottom" title="Pesanan dalam {{ $item->status }} tidak dapat dibatalkan">batalkan pesanan</span>
+                                        <br>
                                         @else
                                         {{-- <a href="#"style="font-size: 10px; padding: 5px; border-radius: 5px" class="badge bg-danger text-white">batalkan pesanan</a> --}}
                                         <form action="{{ route('order.cancel',$item->id) }}" method="POST">
                                           @csrf
                                           {{-- <button type="submit" style="font-size: 10px;" class="btn btn-danger btn-sm mt-2">Batalkan Pesanan</button> --}}
-                                          <button style="font-size: 10px;  border-radius: 5px; border-color:none;" class=" bg-danger text-white mt-2" type="submit">batalkan pesanan</button> 
+                                          <button style="font-size: 10px; border-radius: 5px; border:none;" class="bg-danger text-white mt-2" type="submit">batalkan pesanan</button> 
                                         </form>
                                     @endif
-                                  
-                                  <br>
                                   <div style="font-size: 10px; padding: 5px; border-radius: 5px;" class="badge bg-secondary">belum dibayar</div>
                               @endif
                           </td>

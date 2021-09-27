@@ -101,10 +101,11 @@ Route::prefix('entri')->group(function () {
     Route::post('/entri/update/{id}', [EntriController::class, 'update'])->name('entri.update');
     Route::get('/entri/show/{id}', [EntriController::class, 'show'])->name('entri.show');
     Route::delete('/entri/delete/{id}', [EntriController::class, 'delete'])->name('entri.delete');
-
+    Route::get('/pesananbatal', [EntriController::class, 'trash'])->name('entri.pesananBatal');
 });
 Route::prefix('laporan')->group(function () {
     Route::get('/index', [LaporanController::class, 'index'])->name('laporan.index');
+    Route::get('/index/laporan', [LaporanController::class, 'laporanPDF'])->name('laporan.pdf');
 });
 
 // Route::get('/', function () {

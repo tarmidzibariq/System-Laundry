@@ -4,9 +4,12 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class transaksi extends Model
 {
+    use SoftDeletes;
+
     use HasFactory;
     protected $fillable = [
         'id_outlet',
@@ -24,6 +27,8 @@ class transaksi extends Model
         'id_user',
     ];
     protected $table = 'transaksis';
+
+    protected $date = ('deleted_at');
 
     // member
     public function members()

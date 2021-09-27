@@ -8,6 +8,7 @@ use App\Models\Outlet;
 use App\Models\Paket;
 use App\Models\Member;
 use App\Models\User;
+
 class EntriController extends Controller
 {
     /**
@@ -21,7 +22,7 @@ class EntriController extends Controller
         $user = User::all();
         $paket = Paket::all();
         $outlet = Outlet::all();
-        return view('entri.index', compact('transaksi', 'user', 'paket','outlet'));
+        return view('entri.index', compact('transaksi', 'user', 'paket', 'outlet'));
     }
 
     /**
@@ -58,7 +59,7 @@ class EntriController extends Controller
         $paket = Paket::find($transaksi->id_paket);
         $member = Member::find($transaksi->id_member);
         $user = User::find($transaksi->id_user);
-        return view('entri.show', compact('transaksi', 'outlet', 'paket','member','user'));
+        return view('entri.show', compact('transaksi', 'outlet', 'paket', 'member', 'user'));
     }
 
     /**
@@ -101,5 +102,11 @@ class EntriController extends Controller
     {
         $id->delete();
         return redirect('entri/entri')->with('success', 'Entri berhasil dihapus!');
+    }
+
+    public function trash()
+    {
+        $transaksi = Transaksi::onlyTrashed()->get();
+        return view('entri.pesananbatal', compact('transaksi'));
     }
 }

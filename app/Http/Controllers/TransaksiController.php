@@ -115,6 +115,6 @@ class TransaksiController extends Controller
         //     'dibayar' => $request->$cancel,
         // ]);
         $id->delete();
-        return redirect('order/riwayat')->with('success', 'Pesanan berhasil dicancel!');
+        return redirect('order/riwayat')->with('success', 'Pesanan berhasil dibatalkan!');
     }
 }

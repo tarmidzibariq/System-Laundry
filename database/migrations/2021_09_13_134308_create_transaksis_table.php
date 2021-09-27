@@ -28,7 +28,6 @@ class CreateTransaksisTable extends Migration
             $table->enum('status', ['baru', 'proses', 'selesai', 'diambil'])->default('baru');
             $table->enum('dibayar', ['dibayar', 'belum_dibayar'])->default('belum_dibayar');
             $table->unsignedBigInteger('id_user');
-            $table->timestamps();
 
             // relationship outlet
             $table->foreign('id_outlet')->references('id')->on('outlets');
@@ -41,6 +40,9 @@ class CreateTransaksisTable extends Migration
 
             // relationship user
             $table->foreign('id_user')->references('id')->on('users');
+
+            $table->timestamps();
+            $table->dateTime('deleted_at')->nullable();
         });
     }
 

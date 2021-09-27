@@ -10,8 +10,22 @@
         </div>
         <div class="card">
             <div class="container">
-                {{-- <a href="{{ route('outlet.createoutlet') }}"><button class="btn mt-4 text-white" style="background-color:#3FC5F0;"><i class="fas fa-plus mr-1"></i> Tambah Data</button></a> --}}
-                {{-- <a href="{{route('crudsiswa.cetaksiswa')}}"><button class="btn btn-primary mt-4 text-white" ><i class="fas fa-file-pdf mr-1"></i> Print PDF</button></a> --}}
+                <div class="form-group mt-3">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <input type="date" name="min" class="form-control">
+                        </div>
+                        <div class="col-md-4">
+                            <input type="date" name="max" class="form-control">
+                        </div>
+                        <div class="col-md-2">
+                            <button class="btn btn-primary"><i class="fa fa-filter"></i>Filter</button>
+                        </div>
+                        <div class="col-md-2">
+                           <a href="{{ route('laporan.pdf') }}" class="btn btn-danger text-white"><i class="fa fa-file-pdf pr-2"></i>Print PDF</a>
+                        </div>
+                    </div>
+                </div>
                 <div class="table-responsive mt-2">
                   <table class="table table-bordered mt-2 table-hover">
                       <thead>
@@ -29,7 +43,7 @@
                             <td >{{ $i+1 }}</td>
                             <td>{{ Carbon\Carbon::parse($transaksi[$i]['tgl'])->isoFormat("D MMMM Y") }}</td>
                             <td>{{ $transaksi[$i]['jumlah'] }}</td>
-                            <td>{{ $transaksi[$i]['total'] }}</td>
+                            <td>RP.{{ number_format($transaksi[$i]['total']) }}</td>
                             {{-- <td>belum ada pendapatan</td> --}}
                             </tr>
                         @endfor

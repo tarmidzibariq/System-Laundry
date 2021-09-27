@@ -87,7 +87,7 @@ class DatabaseSeeder extends Seeder
         DB::table('transaksis')->insert([
             'id_outlet' => '1',
             'id_paket' => '1',
-            'id_member' => '1',
+            'id_member' => '4',
             'tgl' => '2021-09-25',
             'batas_waktu'=> '2021-09-30',
             'tgl_bayar'=> '2021-09-30',

@@ -27,7 +27,7 @@
                     <a href="">
                         <div class="card text-center">
                             <p><i class="fas fa-shopping-cart"></i></p>
-                            <p>123</p>
+                            <p>{{ $order }}</p>
                         </div>
                     </a>
                 </div>

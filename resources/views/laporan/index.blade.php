@@ -19,7 +19,7 @@
                             <input type="date" name="max" class="form-control">
                         </div>
                         <div class="col-md-2">
-                            <button class="btn btn-primary"><i class="fa fa-filter"></i>Filter</button>
+                            <button class="btn btn-primary"><i class="fa fa-filter"></i> Filter</button>
                         </div>
                         <div class="col-md-2">
                            <a href="{{ route('laporan.pdf') }}" class="btn btn-danger text-white"><i class="fa fa-file-pdf pr-2"></i>Print PDF</a>
@@ -43,7 +43,7 @@
                             <td >{{ $i+1 }}</td>
                             <td>{{ Carbon\Carbon::parse($transaksi[$i]['tgl'])->isoFormat("D MMMM Y") }}</td>
                             <td>{{ $transaksi[$i]['jumlah'] }}</td>
-                            <td>RP.{{ number_format($transaksi[$i]['total']) }}</td>
+                            <td>Rp. {{ number_format($transaksi[$i]['total']) }}</td>
                             {{-- <td>belum ada pendapatan</td> --}}
                             </tr>
                         @endfor

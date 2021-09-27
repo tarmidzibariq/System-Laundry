@@ -85,8 +85,8 @@
     </section>
 @endsection
 @push('script')
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/js/bootstrap-select.min.js"></script>
+    {{-- <script src="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/js/bootstrap-select.min.js"></script>
     <script>
         $('.selectpicker').selectpicker();
-    </script>
+    </script> --}}
 @endpush

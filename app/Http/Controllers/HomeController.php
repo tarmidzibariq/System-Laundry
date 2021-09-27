@@ -28,6 +28,7 @@ class HomeController extends Controller
     {
         $pengguna = User::where('role', 'member')->count();
         $outlet = Outlet::count();
+        $order = Transaksi::count();
         $transaksi = Transaksi::all();
         $yax = Transaksi::select('status');
 
@@ -38,6 +39,6 @@ class HomeController extends Controller
         }
         // dd($transaksi);
         // dd($transaksi->where('role', 'member')->count(), $transaksi->where('role', 'kasir')->count());
-        return view('dashboard.dash', compact('pengguna', 'outlet', 'kategori', 'transaksi'));
+        return view('dashboard.dash', compact('pengguna', 'outlet', 'kategori', 'transaksi','order'));
     }
 }

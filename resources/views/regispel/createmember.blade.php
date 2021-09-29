@@ -46,6 +46,21 @@
                                 @enderror
                             </div>
                             <div class="mb-3">
+                                <label for="" class="form-label">Provinsi</label>
+                                <select name="provinsi" class="form-control" id="provinsi">
+                                    <option value="plh">Pilih Provinsi</option>
+                                    @foreach ($provinsi as $item)
+                                        <option value="{{ $item }}">{{ $item }}</option>
+                                    @endforeach
+                                </select>
+                            </div>
+                            <div class="mb-3">
+                                <label for="" class="form-label">Kota</label>
+                                <select name="kota" class="form-control" id="kota">
+                                    <option value="">Pilih Kota</option>
+                                </select>
+                            </div>
+                            <div class="mb-3">
                                 <label for="" class="form-label">Alamat</label>
                                 <textarea name="alamat" id="deks" cols="30" rows="10" class="form-control @error('alamat') is-invalid @enderror"  maxlength="250"></textarea>
                                 <p class="mt-2" id="jk" style="opacity: 45%">Jumlah Karakter : <span id="outdeks">0</span>/250</p>
@@ -88,6 +103,28 @@
             });
 
             // AKhir Deksripsi
+
+            $('#provinsi').change(function () {
+                prov = $('#provinsi').val();
+                console.log(prov);
+                isikt = '<option>Pilih Kota</option>';
+                kota = {!! json_encode($kota) !!};
+                kota[prov].forEach(kta);
+                function kta(item,index) {
+                    isikt += '<option value="'+ item +'">'+ item +'</option>';
+                }
+                $('#kota').html(isikt);
+            });
+            $('#kota').change(function () {
+                prov = '';
+                kot = '';
+                prov += $('#provinsi').val();
+                kot += $('#kota').val();
+                deks = $('#deks').val();
+                $('#deks').val(deks + ',' + kot + ',' + prov);
+            })
+
+
         })
     </script>
 @endpush

@@ -27,18 +27,24 @@
                 <th scope="col">TANGGAL</th>
                 <th scope="col">TOTAL PESANAN</th>
                 <th scope="col">TOTAL PENDAPATAN</th>
-                {{-- <th scope="col">ACTION</th> --}}
+                {{-- <th scope="col">TOTAL BERSIH</th> --}}
             </tr>
         </thead>
         <tbody style="text-align: center;">
-            @for ($i = 0; $i < count($transaksi); $i++) <tr>
-                <td>{{ $i+1 }}</td>
-                <td>{{ Carbon\Carbon::parse($transaksi[$i]['tgl'])->isoFormat("D MMMM Y") }}</td>
-                <td>{{ $transaksi[$i]['jumlah'] }}</td>
-                <td>Rp. {{ number_format($transaksi[$i]['total']) }}</td>
-                {{-- <td>belum ada pendapatan</td> --}}
+            @for ($i = 0; $i < count($transaksi); $i++) 
+                <tr>
+                    <td>{{ $i+1 }}</td>
+                    <td>{{ Carbon\Carbon::parse($transaksi[$i]['tgl'])->isoFormat("D MMMM Y") }}</td>
+                    <td>{{ $transaksi[$i]['jumlah'] }}</td>
+                    <td>Rp. {{ number_format($transaksi[$i]['total']) }}</td>
+                    
+                    {{-- <td>Rp. {{ number_format($transaksi[$i]['nett']) }}</td> --}}
                 </tr>
                 @endfor
+                <tr>
+                    <td colspan="3">Total</td>
+                    <td>Rp. {{ number_format($total) }}</td>
+                </tr>
 
         </tbody>
     </table>

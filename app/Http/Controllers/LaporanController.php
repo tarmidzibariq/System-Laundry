@@ -17,6 +17,7 @@ class LaporanController extends Controller
             DB::raw("DATE_FORMAT(tgl, '%Y-%m-%d') as tgl")
         )
             ->groupBy('tgl')->orderBy('tgl')->get();
+        $total = Transaksi::sum('biaya');
         // $transaksi = $t
         // dd($transaksi);
         // foreach ($transaksi as $key ) {
@@ -25,7 +26,7 @@ class LaporanController extends Controller
         //  }
         // $transaksi = Transaksi::where('id')->count();
         // $tanggal = Transaksi::date_format('tgl');
-        return view('laporan.index', compact('transaksi'));
+        return view('laporan.index', compact('transaksi','total'));
     }
     public function laporanPDF()
     {
@@ -35,6 +36,7 @@ class LaporanController extends Controller
             DB::raw("DATE_FORMAT(tgl, '%Y-%m-%d') as tgl")
         )
             ->groupBy('tgl')->orderBy('tgl')->get();
+        $total = Transaksi::sum('biaya');
         // $transaksi = $t
         // dd($transaksi);
         // foreach ($transaksi as $key ) {
@@ -43,8 +45,9 @@ class LaporanController extends Controller
         //  }
         // $transaksi = Transaksi::where('id')->count();
         // $tanggal = Transaksi::date_format('tgl');
-        $pdf = PDF::loadView('laporan.laporan', compact('transaksi'));
+        $pdf = PDF::loadView('laporan.laporan', compact('transaksi','total'));
 
         return $pdf->download('Laporan-Penjualan.pdf');
+        // return view('laporan.laporan',compact('transaksi', 'total'));
     }
 }

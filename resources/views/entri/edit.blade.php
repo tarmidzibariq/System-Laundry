@@ -20,10 +20,13 @@
                                 <label for="" class="form-label">Status</label>
                                 <select name="status" id="" class="select-picker form-control  font-weight-lighter @error('status') is-invalid @enderror" data-live-search="true">
                                     <option value="">Pilih satu</option>
-                                    <option value="baru"{{ (old('status') ?? $transaksi->status) == 'baru' ? 'selected' : '' }}>Baru</option>
-                                    <option value="proses"{{ (old('status') ?? $transaksi->status) == 'proses' ? 'selected' : '' }}>Proses</option>
-                                    <option value="selesai"{{ (old('status') ?? $transaksi->status) == 'selesai' ? 'selected' : '' }}>Selesai</option>
-                                    <option value="diambil"{{ (old('status') ?? $transaksi->status) == 'diambil' ? 'selected' : '' }}>Diambil</option>
+                                    <option value="pending"{{ (old('status') ?? $transaksi->status) == 'pending' ? 'selected' : '' }}>pending</option>
+                                    <option value="verifikasi"{{ (old('status') ?? $transaksi->status) == 'verifikasi' ? 'selected' : '' }}>verifikasi</option>
+                                    <option value="pesanan_diambil"{{ (old('status') ?? $transaksi->status) == 'pesanan_diambil' ? 'selected' : '' }}>pesanan diambil</option>
+                                    <option value="laundry"{{ (old('status') ?? $transaksi->status) == 'laundry' ? 'selected' : '' }}>laundry</option>
+                                    <option value="selesai_laundry"{{ (old('status') ?? $transaksi->status) == 'selesai_laundry' ? 'selected' : '' }}>selesai laundry</option>
+                                    <option value="barang_dikirim"{{ (old('status') ?? $transaksi->status) == 'barang_dikirim' ? 'selected' : '' }}>barang dikirim</option>
+                                    <option value="barang_diterima"{{ (old('status') ?? $transaksi->status) == 'barang_diterima' ? 'selected' : '' }}>barang diterima</option>
                                 </select>
                                 @error('status')
                                     <small class="text-danger ">{{$message}}</small>

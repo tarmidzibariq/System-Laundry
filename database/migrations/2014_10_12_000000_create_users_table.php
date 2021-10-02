@@ -21,6 +21,9 @@ class CreateUsersTable extends Migration
             $table->string('password');
             $table->enum('role',['admin','kasir','owner','member']);
             $table->unsignedBigInteger('id_outlet')->nullable();
+            $table->string('alamat')->nullable();
+            $table->string('tlp')->nullable();
+            $table->enum('jenis_kelamin',['laki-laki','perempuan'])->nullable();
             $table->rememberToken();
             $table->timestamps();
 

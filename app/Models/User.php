@@ -23,6 +23,9 @@ class User extends Authenticatable
         'role',
         'password',
         'id_outlet',
+        'alamat',
+        'tlp',
+        'jenis_kelamin',
     ];
 
     /**

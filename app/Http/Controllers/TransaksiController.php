@@ -16,10 +16,11 @@ class TransaksiController extends Controller
     public function create()
     {
         $outlet = Outlet::pluck('nama', 'id');
-        $member = Member::all();
+        // $member = Member::all();
+        $alamat = Outlet::where('alamat', Auth::user()->alamat)->get();
         $lima_hari = mktime(0, 0, 0, date("n"), date("j") + 5, date("Y"));
         $batas = date("Y-m-d", $lima_hari);
-        return view('order.createorder', compact('outlet', 'batas', 'member'));
+        return view('order.createorder', compact('outlet', 'batas', 'alamat'));
     }
 
     public function getPaket(Request $request)
@@ -53,7 +54,7 @@ class TransaksiController extends Controller
             'id_outlet' => 'required',
             'id_paket' => 'required',
             // 'kode_invoice'=>'required',
-            'id_member' => 'required',
+            // 'id_member' => 'required',
             'tgl' => 'required',
             'batas_waktu' => 'required',
             'tgl_bayar' => 'required',
@@ -74,14 +75,14 @@ class TransaksiController extends Controller
             'id_outlet' => $request->id_outlet,
             'id_paket' => $request->id_paket,
             // 'kode_invoice' => $request->kode_invoice,
-            'id_member' => $request->id_member,
+            // 'id_member' => $request->id_member,
             'tgl' => $request->tgl,
             'batas_waktu' => $request->batas_waktu,
             'tgl_bayar' => $request->tgl_bayar,
             'biaya' => $request->biaya,
             'diskon' => $request->diskon,
             'pajak' => $request->pajak,
-            'status' => 'baru',
+            'status' => 'pending',
             'dibayar' => 'belum_dibayar',
             'id_user' => $request->id_user,
         ]);

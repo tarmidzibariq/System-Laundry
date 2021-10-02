@@ -36,29 +36,26 @@
                           <td style="text-transform: capitalize">{{$item->outlets->nama.' | '.$item->pakets->nama_paket}}</td>
                           <td>{{number_format($item->biaya)}}</td>
                           <td>
-                              @if ($item->status == 'baru')
-                                    <div style="font-size: 10px; padding: 5px; border-radius: 5px" class="badge bg-warning text-white">{{$item->status}}</div>
-                                    {{-- <div style="font-size: 10px; padding: 5px; border-radius: 5px" class="badge bg-secondary text-white">Proses</div>
-                                    <div style="font-size: 10px; padding: 5px; border-radius: 5px" class="badge bg-secondary text-white">Selesai</div>
-                                    <div style="font-size: 10px; padding: 5px; border-radius: 5px" class="badge bg-secondary text-white">Diambil</div> --}}
+                              @if ($item->status == 'pending')
+                                  <div style="font-size: 10px; padding: 5px; border-radius: 5px; background-color:#FB9300;" class="badge text-white">{{$item->status}}</div>
                               @endif
-                              @if ($item->status == 'proses')
-                                    {{-- <div style="font-size: 10px; padding: 5px; border-radius: 5px" class="badge bg-secondary text-white">Baru</div> --}}
-                                    <div style="font-size: 10px; padding: 5px; border-radius: 5px" class="badge bg-info text-white">{{$item->status}}</div>
-                                    {{-- <div style="font-size: 10px; padding: 5px; border-radius: 5px" class="badge bg-secondary text-white">Selesai</div>
-                                    <div style="font-size: 10px; padding: 5px; border-radius: 5px" class="badge bg-secondary text-white">Diambil</div> --}}
+                              @if ($item->status == 'verifikasi')
+                                  <div style="font-size: 10px; padding: 5px; border-radius: 5px;" class="badge bg-success text-white">{{$item->status}}</div>
                               @endif
-                              @if ($item->status == 'selesai')
-                                    {{-- <div style="font-size: 10px; padding: 5px; border-radius: 5px" class="badge bg-secondary text-white">Baru</div>
-                                    <div style="font-size: 10px; padding: 5px; border-radius: 5px" class="badge bg-secondary text-white">Proses</div> --}}
-                                    <div style="font-size: 10px; padding: 5px; border-radius: 5px" class="badge bg-primary text-white">{{$item->status}}</div>
-                                    {{-- <div style="font-size: 10px; padding: 5px; border-radius: 5px" class="badge bg-secondary text-white">Diambil</div> --}}
+                              @if ($item->status == 'pesanan_diambil')
+                                  <div style="font-size: 10px; padding: 5px; border-radius: 5px; background-color:#FFC107;" class="badge text-white">pesanan diambil</div>
                               @endif
-                              @if ($item->status == 'diambil')
-                                    {{-- <div style="font-size: 10px; padding: 5px; border-radius: 5px" class="badge bg-secondary text-white">Baru</div>
-                                    <div style="font-size: 10px; padding: 5px; border-radius: 5px" class="badge bg-secondary text-white">Proses</div>
-                                    <div style="font-size: 10px; padding: 5px; border-radius: 5px" class="badge bg-secondary text-white">Selesai</div> --}}
-                                    <div style="font-size: 10px; padding: 5px; border-radius: 5px" class="badge bg-success text-white">{{$item->status}}</div>
+                              @if ($item->status == 'laundry')
+                                  <div style="font-size: 10px; padding: 5px; border-radius: 5px; background-color:#5C7AEA;" class="badge text-white">{{$item->status}}</div>
+                              @endif
+                              @if ($item->status == 'selesai_laundry')
+                                  <div style="font-size: 10px; padding: 5px; border-radius: 5px; background-color:#3DB2FF;" class="badge text-white">selesai laundry</div>
+                              @endif
+                              @if ($item->status == 'barang_dikirim')
+                                  <div style="font-size: 10px; padding: 5px; border-radius: 5px; background-color:#3F0071;" class="badge text-white">barang dikirim</div>
+                              @endif
+                              @if ($item->status == 'barang_diterima')
+                                  <div style="font-size: 10px; padding: 5px; border-radius: 5px; background:#00A19D;" class="badge  text-white">barang diterima</div>
                               @endif
                           </td>
                           <td>

@@ -34,26 +34,26 @@ class DatabaseSeeder extends Seeder
             'role'=> 'admin',
             // 'id_outlet'=> '1',
         ]);
-        DB::table('users')->insert([
-            'name' => 'kasir',
-            'email' => 'kasir@gmail.com',
-            'password' => Hash::make('12345678'),
-            'role' => 'kasir',
-            'id_outlet' => '1',
-        ]);
-        DB::table('users')->insert([
-            'name' => 'owner',
-            'email' => 'owner@gmail.com',
-            'password' => Hash::make('12345678'),
-            'role' => 'owner',
-            'id_outlet' => '1',
-        ]);
-        DB::table('users')->insert([
-            'name' => 'member',
-            'email' => 'member@gmail.com',
-            'password' => Hash::make('12345678'),
-            'role' => 'member',
-        ]);
+        // DB::table('users')->insert([
+        //     'name' => 'kasir',
+        //     'email' => 'kasir@gmail.com',
+        //     'password' => Hash::make('12345678'),
+        //     'role' => 'kasir',
+        //     'id_outlet' => '1',
+        // ]);
+        // DB::table('users')->insert([
+        //     'name' => 'owner',
+        //     'email' => 'owner@gmail.com',
+        //     'password' => Hash::make('12345678'),
+        //     'role' => 'owner',
+        //     'id_outlet' => '1',
+        // ]);
+        // DB::table('users')->insert([
+        //     'name' => 'member',
+        //     'email' => 'member@gmail.com',
+        //     'password' => Hash::make('12345678'),
+        //     'role' => 'member',
+        // ]);
 
         // pakets
         DB::table('pakets')->insert([
@@ -75,29 +75,31 @@ class DatabaseSeeder extends Seeder
             'harga' => '15000',
         ]);
 
-        // members
-        DB::table('members')->insert([
-            'nama' => 'Adil Farizky',
-            'alamat' => 'Pekapuran Jl Berada',
-            'jenis_kelamin' => 'Laki - Laki',
-            'tlp' => '089511447564',
-        ]);
+        // // members
+        // DB::table('members')->insert([
+        //     'nama' => 'Adil Farizky',
+        //     'alamat' => 'Jakarta',
+        //     'latitude' => '-6.208760',
+        //     'longitude' => '106.845599',
+        //     'jenis_kelamin' => 'Laki - Laki',
+        //     'tlp' => '089511447564',
+        // ]);
 
-        // transaksi
-        DB::table('transaksis')->insert([
-            'id_outlet' => '1',
-            'id_paket' => '1',
-            'id_member' => '4',
-            'tgl' => '2021-09-25',
-            'batas_waktu'=> '2021-09-30',
-            'tgl_bayar'=> '2021-09-30',
-            'biaya'=> '11000',
-            'diskon'=> '10',
-            'pajak'=> '2000',
-            'status'=> 'baru',
-            'dibayar'=> 'belum_dibayar',
-            'id_user' => '1',
-        ]);
+        // // transaksi
+        // DB::table('transaksis')->insert([
+        //     'id_outlet' => '1',
+        //     'id_paket' => '1',
+        //     'id_member' => '1',
+        //     'tgl' => '2021-09-25',
+        //     'batas_waktu'=> '2021-09-30',
+        //     'tgl_bayar'=> '2021-09-30',
+        //     'biaya'=> '11000',
+        //     'diskon'=> '10',
+        //     'pajak'=> '2000',
+        //     'status'=> 'baru',
+        //     'dibayar'=> 'belum_dibayar',
+        //     'id_user' => '1',
+        // ]);
 
     }
 }

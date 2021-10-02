@@ -40,34 +40,46 @@
                           {{-- <td>{{$item->tgl}}</td>
                           <td>{{$item->batas_waktu}}</td> --}}
                           <td>
-                              @if ($item->status == 'baru')
-                                  <div style="font-size: 10px; padding: 5px; border-radius: 5px" class="badge bg-warning text-white">{{$item->status}}</div>
+                              @if ($item->status == 'pending')
+                                  <div style="font-size: 10px; padding: 5px; border-radius: 5px; background-color:#FB9300;" class="badge text-white">{{$item->status}}</div>
                               @endif
-                              @if ($item->status == 'proses')
-                                  <div style="font-size: 10px; padding: 5px; border-radius: 5px" class="badge bg-info text-white">{{$item->status}}</div>
+                              @if ($item->status == 'verifikasi')
+                                  <div style="font-size: 10px; padding: 5px; border-radius: 5px;" class="badge bg-success text-white">{{$item->status}}</div>
                               @endif
-                              @if ($item->status == 'selesai')
-                                  <div style="font-size: 10px; padding: 5px; border-radius: 5px" class="badge bg-primary text-white">{{$item->status}}</div>
+                              @if ($item->status == 'pesanan_diambil')
+                                  <div style="font-size: 10px; padding: 5px; border-radius: 5px; background-color:#FFC107;" class="badge text-white">pesanan diambil</div>
                               @endif
-                              @if ($item->status == 'diambil')
-                                  <div style="font-size: 10px; padding: 5px; border-radius: 5px" class="badge bg-success text-white">{{$item->status}}</div>
+                              @if ($item->status == 'laundry')
+                                  <div style="font-size: 10px; padding: 5px; border-radius: 5px; background-color:#5C7AEA;" class="badge text-white">{{$item->status}}</div>
+                              @endif
+                              @if ($item->status == 'selesai_laundry')
+                                  <div style="font-size: 10px; padding: 5px; border-radius: 5px; background-color:#3DB2FF;" class="badge text-white">selesai laundry</div>
+                              @endif
+                              @if ($item->status == 'barang_dikirim')
+                                  <div style="font-size: 10px; padding: 5px; border-radius: 5px; background-color:#3F0071;" class="badge text-white">barang dikirim</div>
+                              @endif
+                              @if ($item->status == 'barang_diterima')
+                                  <div style="font-size: 10px; padding: 5px; border-radius: 5px; background:#00A19D;" class="badge  text-white">barang diterima</div>
                               @endif
                           </td>
                           <td>
                               @if ($item->dibayar == 'dibayar')
-                                  <div style="font-size: 10px; padding: 5px; border-radius: 5px" class="badge bg-success text-white">dibayar</div>
+                                  <div style="font-size: 10px; padding: 5px; border-radius: 5px;" class="badge bg-success text-white">dibayar</div>
                               @endif
                               @if ($item->dibayar == 'belum_dibayar')
-                                    @if ($item->status == 'proses' or $item->status == 'selesai')
-                                        <span style="font-size: 10px; padding: 5px; border-radius: 5px; opacity: 50%;" class="badge bg-danger text-white"  data-toggle="tooltip" data-placement="bottom" title="Pesanan dalam {{ $item->status }} tidak dapat dibatalkan">batalkan pesanan</span>
-                                        <br>
-                                        @else
-                                        {{-- <a href="#"style="font-size: 10px; padding: 5px; border-radius: 5px" class="badge bg-danger text-white">batalkan pesanan</a> --}}
+                                    @if ($item->status == 'pending')
                                         <form action="{{ route('order.cancel',$item->id) }}" method="POST">
                                           @csrf
-                                          {{-- <button type="submit" style="font-size: 10px;" class="btn btn-danger btn-sm mt-2">Batalkan Pesanan</button> --}}
+                                
                                           <button style="font-size: 10px; border-radius: 5px; border:none;" class="bg-danger text-white mt-2" type="submit">batalkan pesanan</button> 
                                         </form>
+                                        
+                                        
+                                        @else
+                                        <span style="font-size: 10px; padding: 5px; border-radius: 5px; opacity: 50%;" class="badge bg-danger text-white"  data-toggle="tooltip" data-placement="bottom" title="Pesanan dalam {{ $item->status }} tidak dapat dibatalkan">batalkan pesanan</span>
+                                        <br>
+                                        {{-- <a href="#"style="font-size: 10px; padding: 5px; border-radius: 5px" class="badge bg-danger text-white">batalkan pesanan</a> --}}
+                                        
                                     @endif
                                   <div style="font-size: 10px; padding: 5px; border-radius: 5px;" class="badge bg-secondary">belum dibayar</div>
                               @endif

@@ -10,6 +10,7 @@ use App\Http\Controllers\RegispelController;
 use App\Http\Controllers\TransaksiController;
 use App\Http\Controllers\EntriController;
 use App\Http\Controllers\LaporanController;
+use App\Http\Controllers\GmapsController;
 use Illuminate\Routing\RouteGroup;
 use Illuminate\Support\Facades\Auth;
 
@@ -106,6 +107,10 @@ Route::prefix('entri')->group(function () {
 Route::prefix('laporan')->group(function () {
     Route::get('/index', [LaporanController::class, 'index'])->name('laporan.index');
     Route::get('/index/laporan', [LaporanController::class, 'laporanPDF'])->name('laporan.pdf');
+});
+
+Route::prefix('gmaps')->group(function () {
+    Route::get('/index', [GmapsController::class, 'index'])->name('gmaps.index');
 });
 
 // Route::get('/', function () {

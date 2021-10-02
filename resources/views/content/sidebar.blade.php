@@ -19,11 +19,11 @@
                 <a href="{{ route('regispel.index') }}" class="nav-link "><i class="fas fa-users-cog"></i><span>Registrasi Pelanggan</span></a>
             </li>
             @endif
-            @if(Auth::user()->role == 'member')
+            {{-- @if(Auth::user()->role == 'member')
             <li class="nav-item ">
                 <a href="{{ route('regispel.createmember') }}" class="nav-link "><i class="fas fa-users-cog"></i><span>Registrasi Pelanggan</span></a>
             </li>
-            @endif
+            @endif --}}
             {{-- @if(Auth::user()->role == 'member')
             <li class="nav-item ">
                 <a href="{{ route('regispel.indexmember') }}" class="nav-link "><i class="fas fa-users-cog"></i><span>Pelanggan</span></a>

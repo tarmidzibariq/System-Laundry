@@ -17,6 +17,8 @@ class CreateMembersTable extends Migration
             $table->id();
             $table->string('nama')->unique();
             $table->string('alamat');
+            $table->string('latitude');
+            $table->string('longitude');
             $table->string('jenis_kelamin');
             $table->string('tlp');
             $table->timestamps();

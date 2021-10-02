@@ -25,7 +25,7 @@ class CreateTransaksisTable extends Migration
             $table->string('biaya');
             $table->string('diskon');
             $table->string('pajak');
-            $table->enum('status', ['baru', 'proses', 'selesai', 'diambil'])->default('baru');
+            $table->enum('status', ['pending', 'verifikasi', 'pesanan_diambil', 'laundry', 'selesai_laundry','barang_dikirim','barang_diterima'])->nullable()->default('pending');
             $table->enum('dibayar', ['dibayar', 'belum_dibayar'])->default('belum_dibayar');
             $table->unsignedBigInteger('id_user');
 

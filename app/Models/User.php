@@ -27,6 +27,7 @@ class User extends Authenticatable
         'tlp',
         'jenis_kelamin',
         'foto',
+        'deks',
     ];
 
     /**

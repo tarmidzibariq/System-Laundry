@@ -37,7 +37,7 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Route::get('/home', [HomeController::class, 'index'])->name('dashboard.dash');
 
 // profile
-Route::get('/profile/{id}', [ProfileController::class, 'index'])->name('profile');
+Route::get('/profile', [ProfileController::class, 'index'])->name('profile');
 Route::post('profile/edit/{id}', [ProfileController::class, 'update'])->name('profile.edit');
 
 // pengguna

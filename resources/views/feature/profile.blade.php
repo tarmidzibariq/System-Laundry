@@ -28,7 +28,7 @@
                                         <span class="fa fa-camera"></span>
                                     </a>
                                 </label>
-                                <input type="file" name="foto" id="foto" class="d-none">
+                                <input type="file" name="foto" id="foto" class="d-none" value="">
                                 <div class="profile-widget-items">
                                     <div class="profile-widget-item">
                                         <div class="profile-widget-item-label">Order</div>
@@ -55,10 +55,7 @@
                                     <span style="text-transform: capitalize;">{{ $data->role }}</span>
                                 </div>
                             </div>
-                            Ujang maman is a superhero name in <b>Indonesia</b>, especially in my family. He is not a
-                            fictional character but an original hero in my family, a hero for his children and for his wife.
-                            So, I use the name as a user in this template. Not a tribute, I'm just bored with <b>'John
-                                Doe'</b>.
+                            {!! $data->deks !!}
                         </div>
                     </div>
                 </div>
@@ -127,7 +124,7 @@
                                 <div class="col-md-12 form-group">
                                     <label>Description</label>
                                     <textarea name="deks" id="" cols="30" rows="30"
-                                        class="form-control ckeditor">{{ $data->alamat }}</textarea>
+                                        class="form-control ckeditor">{{ $data->deks }}</textarea>
                                 </div>
                             </div>
                         </div>

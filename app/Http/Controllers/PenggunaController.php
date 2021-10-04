@@ -33,6 +33,9 @@ class PenggunaController extends Controller
                 'email' => 'required|email',
                 'password' => 'required',
                 'role' => 'required',
+                'alamat' => 'required',
+                'tlp' => 'required',
+                'jenis_kelamin' => 'required',
             ]
         );
         $user = User::create([
@@ -40,6 +43,9 @@ class PenggunaController extends Controller
             'email' => $request->email,
             'password' => Hash::make($request->password),
             'role' => $request->role,
+            'alamat' => $request->alamat,
+            'tlp' => $request->tlp,
+            'jenis_kelamin' => $request->jenis_kelamin,
         ]);
         return redirect('pengguna/pengguna')->with('success', 'Pengguna berhasil ditambah!');
     }

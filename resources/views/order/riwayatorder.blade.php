@@ -57,6 +57,10 @@
                               @endif
                               @if ($item->status == 'barang_dikirim')
                                   <div style="font-size: 10px; padding: 5px; border-radius: 5px; background-color:#3F0071;" class="badge text-white">barang dikirim</div>
+                                  @if ($item->status === 'barang_dikirim')
+                                  <br>
+                                       <button style="font-size: 10px; border-radius: 5px; border:none;" class="bg-dark text-white mt-2" type="submit">lacak pengiriman</button> 
+                                  @endif
                               @endif
                               @if ($item->status == 'barang_diterima')
                                   <div style="font-size: 10px; padding: 5px; border-radius: 5px; background:#00A19D;" class="badge  text-white">barang diterima</div>

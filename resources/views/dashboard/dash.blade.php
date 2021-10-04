@@ -87,17 +87,26 @@
             name: 'Total',
             colorByPoint: true,
             data: [{
-                name: 'Baru',
-                y:{{$transaksi->where('status', 'baru')->count()}}, color:'#ffa426',
+                name: 'Pending',
+                y:{{$transaksi->where('status', 'pending')->count()}}, color:'#FB9300',
             },{
-                name: 'Proses',
-                y:{{$transaksi->where('status', 'proses')->count()}}, color:'#6dccf7',
+                name: 'Verifikasi',
+                y:{{$transaksi->where('status', 'verifikasi')->count()}}, color:'#6dccf7',
             },{
-                name: 'Selesai',
-                y:{{$transaksi->where('status', 'selesai')->count()}}, color:'#6777ef', 
+                name: 'Pesanan diambil',
+                y:{{$transaksi->where('status', 'pesanan_diambil')->count()}}, color:'#FFC107', 
             },{
-                name: 'Diambil',
-                y:{{$transaksi->where('status', 'diambil')->count()}} , color:'#47c363',
+                name: 'Laundry',
+                y:{{$transaksi->where('status', 'laundry')->count()}}, color:'#5C7AEA',
+            },{
+                name: 'Selesai Laundry',
+                y:{{$transaksi->where('status', 'selesai_laundry')->count()}}, color:'#3DB2FF', 
+            },{
+                name: 'Barang dikirim',
+                y:{{$transaksi->where('status', 'barang_dikirim')->count()}}, color:'#3F0071', 
+            },{
+                name: 'Barang diterima',
+                y:{{$transaksi->where('status', 'barang_diterima')->count()}} , color:'#00A19D',
             }]
         }]
     });

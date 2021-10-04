@@ -26,6 +26,7 @@ class User extends Authenticatable
         'alamat',
         'tlp',
         'jenis_kelamin',
+        'foto',
     ];
 
     /**
@@ -51,13 +52,12 @@ class User extends Authenticatable
     // protected $guarded = [];
     public function outlets()
     {
-        return $this->belongsTo('App\Models\outlet', 'id_outlet','id');
+        return $this->belongsTo('App\Models\outlet', 'id_outlet', 'id');
     }
 
     // transakis
     public function transaksis()
     {
         return $this->hasMany('App\Models\transaksi');
-    }  
-    
+    }
 }

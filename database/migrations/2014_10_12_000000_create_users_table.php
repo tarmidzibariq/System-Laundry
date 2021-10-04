@@ -19,11 +19,12 @@ class CreateUsersTable extends Migration
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
-            $table->enum('role',['admin','kasir','owner','member']);
+            $table->enum('role', ['admin', 'kasir', 'owner', 'member']);
             $table->unsignedBigInteger('id_outlet')->nullable();
             $table->string('alamat')->nullable();
             $table->string('tlp')->nullable();
-            $table->enum('jenis_kelamin',['laki-laki','perempuan'])->nullable();
+            $table->string('foto')->nullable();
+            $table->enum('jenis_kelamin', ['laki-laki', 'perempuan'])->nullable();
             $table->rememberToken();
             $table->timestamps();
 

@@ -11,11 +11,17 @@
     <ul class="navbar-nav navbar-right">
         <li class="dropdown"><a href="#" data-toggle="dropdown"
                 class="nav-link dropdown-toggle nav-link-lg nav-link-user">
-                <img alt="image" src="{{ asset('/assets/img/avatar/avatar-1.png') }}" class="rounded-circle mr-1">
-                <div class="d-sm-none d-lg-inline-block" style="text-transform: capitalize">Hi, {{ Auth::user()->name }}</div>
+                @if (Auth::user()->foto == null)
+                    <img src="{{ asset('/assets/img/avatar/avatar-1.png') }}" alt=""
+                        class="rounded-circle profile-widget-picture">
+                @else
+                    <img alt="image" src="{{ asset('/img' . '/' . Auth::user()->foto) }}" class="rounded-circle mr-1">
+                @endif
+                <div class="d-sm-none d-lg-inline-block" style="text-transform: capitalize">Hi,
+                    {{ Auth::user()->name }}</div>
             </a>
             <div class="dropdown-menu dropdown-menu-right">
-                <div class="dropdown-title">Logged in 5 min ago</div>
+                <div class="dropdown-title">Masuk <span id="time">5 min ago</span></div>
                 <a href="{{ route('profile', [Auth::user()->id]) }}" class="dropdown-item has-icon">
                     <i class="far fa-user"></i> Profile
                 </a>
@@ -26,8 +32,7 @@
                     <i class="fas fa-cog"></i> Settings
                 </a>
                 <div class="dropdown-divider"></div>
-                <a class="dropdown-item has-icon text-danger" href="{{ route('logout') }}"
-                    onclick="event.preventDefault();
+                <a class="dropdown-item has-icon text-danger" href="{{ route('logout') }}" onclick="event.preventDefault();
                                     document.getElementById('logout-form').submit();">
                     <i class="fas fa-sign-out-alt"></i>{{ __('Logout') }}
                 </a>
@@ -39,3 +44,10 @@
         </li>
     </ul>
 </nav>
+@push('script')
+    <script>
+        setInterval(() => {
+            document.getElementById("time").innerHTML = "{!! Carbon\Carbon::parse(session()->get('last_login_at'))->diffForHumans() !!}"
+        }, 1000)
+    </script>
+@endpush

@@ -14,11 +14,11 @@
             </li>
             <li class="menu-header">Menu</li>
             @if(Auth::check())
-            @if(Auth::user()->role == 'admin' or Auth::user()->role == 'kasir')
+            {{-- @if(Auth::user()->role == 'admin' or Auth::user()->role == 'kasir')
             <li class="nav-item ">
                 <a href="{{ route('regispel.index') }}" class="nav-link "><i class="fas fa-users-cog"></i><span>Registrasi Pelanggan</span></a>
             </li>
-            @endif
+            @endif --}}
             {{-- @if(Auth::user()->role == 'member')
             <li class="nav-item ">
                 <a href="{{ route('regispel.createmember') }}" class="nav-link "><i class="fas fa-users-cog"></i><span>Registrasi Pelanggan</span></a>

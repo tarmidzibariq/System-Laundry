@@ -26,8 +26,32 @@ class LaporanController extends Controller
         //  }
         // $transaksi = Transaksi::where('id')->count();
         // $tanggal = Transaksi::date_format('tgl');
-        return view('laporan.index', compact('transaksi','total'));
+        // $transaksi = Transaksi::whereIn('tgl', ['2021-10-06', '2021-10-14'])->get();
+            $jumlah ='' ;
+        // dd($transaksi); 
+        return view('laporan.index', compact('transaksi','total','jumlah'));
     }
+
+    public function filter(Request $request)
+    {
+        // $transaksi = Transaksi::whereIn('tgl', [$request->min, $request->max])->get();
+        if (empty($request->min) or empty($request->max)) {
+            return redirect()->route('laporan.index');
+        }else {
+            $transaksi = Transaksi::select("*")
+            ->whereBetween('tgl', [$request->min, $request->max])
+            ->get();
+
+            $jumlah = [
+                Transaksi::where('tgl', $request->min)->count(),
+                Transaksi::where('tgl', $request->max)->count()
+            ];
+        
+            $total = Transaksi::select("*")->whereBetween('tgl', [$request->min, $request->max])->sum('biaya');
+            return view('laporan.index', compact('transaksi', 'total','jumlah'));
+        }
+    }
+
     public function laporanPDF()
     {
         $transaksi = Transaksi::select(

@@ -109,6 +109,7 @@ Route::prefix('laporan')->group(function () {
     Route::get('/index', [LaporanController::class, 'index'])->name('laporan.index');
     Route::get('/index/laporan', [LaporanController::class, 'laporanPDF'])->name('laporan.pdf');
 });
+Route::post('/index/filter',[LaporanController::class,'filter'])->name('laporan.filter');
 
 Route::prefix('gmaps')->group(function () {
     Route::get('/index', [GmapsController::class, 'index'])->name('gmaps.index');

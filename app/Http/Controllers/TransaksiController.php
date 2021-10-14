@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\Transaksi;
 use App\Models\Outlet;
 use App\Models\Paket;
+use App\Models\Laporan;
 // use App\Models\Member;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Auth;
@@ -85,9 +86,22 @@ class TransaksiController extends Controller
             'status' => 'pending',
             'dibayar' => 'belum_dibayar',
             'id_user' => $request->id_user,
-        ]);
+        ]); 
         // dd($transaksi);
-
+        $tgl = '2021-10-17';
+        if (Laporan::where('tgl', '2021-10-17')->first() !=null) {
+            Laporan::create([
+                'tgl'=>Carbon::now(),
+                'total_pesanan'=> 1,
+                'total_pendapatan'=> $request->biaya
+            ]);
+        }else {
+            Laporan::find(1)->update([
+                'tgl' => Carbon::now(),
+                'total_pesanan' => 2,
+                'total_pendapatan' => $request->biaya
+            ]);
+        }
         return redirect()->route('order.riwayatorder')->with('success', 'Berhasil membuat pesanan!');
     }
 

@@ -130,7 +130,7 @@
                                         <input id="alamat" type="text" class="form-control" name="alamat"
                                             value="{{ old('alamat') }}">
                                     </div>
-                                    <div class="mb-4">
+                                    {{-- <div class="mb-4">
                                         <label for="provinsi" class="form-label">Provinsi</label>
                                         <select name="provinsi" class="form-control" id="provinsi">
                                             <option value="plh">Pilih Provinsi</option>
@@ -144,7 +144,7 @@
                                         <select name="kota" class="form-control" id="kota">
                                             <option value="">Pilih Kota</option>
                                         </select>
-                                    </div>
+                                    </div> --}}
                                     <div class="mb-4">
                                         <label for="jenis_kelamin" class="form-label">Jenis Kelamin</label>
                                         <select name="jenis_kelamin" id="" class="form-control">
@@ -236,42 +236,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script>
         $(document).ready(function () {
-            // Deksripsi
-
-            $('#deks').keyup(function () {
-                var out = $('#deks').val();
-                $('#outdeks').html('<span>'+out.length +'</span>');
-
-                if (out.length >= 250) {
-                    $('#jk').css({'opacity':'100%'});
-                }else{
-                    $('#jk').css({'opacity':'45%'});
-                }
-            });
-
-            // AKhir Deksripsi
-
-            $('#provinsi').change(function () {
-                prov = $('#provinsi').val();
-                console.log(prov);
-                isikt = '<option>Pilih Kota</option>';
-                kota = {!! json_encode($kota) !!};
-                kota[prov].forEach(kta);
-                function kta(item,index) {
-                    isikt += '<option value="'+ item +'">'+ item +'</option>';
-                }
-                $('#kota').html(isikt);
-            });
-            $('#kota').change(function () {
-                prov = '';
-                kot = '';
-                prov += $('#provinsi').val();
-                kot += $('#kota').val();
-                deks = $('#deks').val();
-                $('#deks').val(deks + ',' + kot + ',' + prov);
-            })
-
-
+            
         })
     </script>
     <!-- Option 2: Separate Popper and Bootstrap JS -->

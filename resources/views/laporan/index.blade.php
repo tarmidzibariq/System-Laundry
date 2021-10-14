@@ -11,20 +11,23 @@
         <div class="card">
             <div class="container">
                 <div class="form-group mt-3">
-                    <div class="row">
-                        <div class="col-md-4">
-                            <input type="date" name="min" class="form-control">
+                    <form action="{{ route('laporan.filter') }}" method="POST">
+                        @csrf
+                        <div class="row">
+                            <div class="col-md-4">
+                                <input type="date" name="min" class="form-control">
+                            </div>
+                            <div class="col-md-4">
+                                <input type="date" name="max" class="form-control">
+                            </div>
+                            <div class="col-md-2">
+                                <button type="submit" class="btn btn-primary"><i class="fa fa-filter"></i> Filter</button>
+                            </div>
+                            <div class="col-md-2">
+                                <a href="{{ route('laporan.pdf') }}" class="btn btn-danger text-white"><i class="fa fa-file-pdf pr-2"></i>Print PDF</a>
+                            </div>
                         </div>
-                        <div class="col-md-4">
-                            <input type="date" name="max" class="form-control">
-                        </div>
-                        <div class="col-md-2">
-                            <button class="btn btn-primary"><i class="fa fa-filter"></i> Filter</button>
-                        </div>
-                        <div class="col-md-2">
-                           <a href="{{ route('laporan.pdf') }}" class="btn btn-danger text-white"><i class="fa fa-file-pdf pr-2"></i>Print PDF</a>
-                        </div>
-                    </div>
+                    </form>
                 </div>
                 <div class="table-responsive mt-2">
                   <table class="table table-bordered mt-2 table-hover">
@@ -38,15 +41,27 @@
                         </tr>
                       </thead>
                       <tbody>
-                        @for ($i = 0; $i < count($transaksi); $i++)
+                        {{-- @for ($i = 0; $i < count($transaksi); $i++)
                             <tr>
                             <td >{{ $i+1 }}</td>
                             <td>{{ Carbon\Carbon::parse($transaksi[$i]['tgl'])->isoFormat("D MMMM Y") }}</td>
                             <td>{{ $transaksi[$i]['jumlah'] }}</td>
                             <td>Rp. {{ number_format($transaksi[$i]['total']) }}</td>
-                            {{-- <td>belum ada pendapatan</td> --}}
+                            
                             </tr>
-                        @endfor
+                        @endfor --}}
+                        {{-- {{ dd($transaksi) }} --}}
+                        @foreach ($transaksi as $id =>$item)
+                            <tr>
+                                <td>{{ ++$id }}</td>
+                                <td>{{ Carbon\Carbon::parse($item->tgl)->isoFormat("D MMMM Y")  }}</td> 
+                                @foreach ($jumlah as $i)
+                                    <td>{{ $i }}</td> 
+                                    {{ dd($jumlah[1]) }}
+                                @endforeach
+                                <td>{{ $item->total }}</td> 
+                            </tr>
+                        @endforeach
                          <tr>
                             <td colspan="3">Total</td>
                             <td>Rp. {{ number_format($total) }}</td>
